@@ -1,0 +1,20 @@
+[
+    {
+        "data": {
+            "id": 1,
+            "name": "John Doe",
+            "contact": "john.doe@example.com",
+            "products": ["Product A", "Product B"],
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        }
+    },
+    {
+        "data": {
+            "id": 2,
+            "name": "Jane Smith",
+            "contact": "jane.smith@example.com",
+            "products": ["Product C", "Product D"],
+            "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+    }
+]
