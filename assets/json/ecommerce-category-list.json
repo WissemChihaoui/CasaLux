@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "categories": "Soins bien-être",
+      "total_products": 1947,
+      "description":"Voici un exemple de description, juste pour améliorer l'aspect de la chose"
+    },
+    {
+      "id": 2,
+      "categories": "Beauté",
+      "total_products": 7283,
+      "description":"Voici un exemple de description, juste pour améliorer l'aspect de la chose"
+    },
+    {
+      "id": 3,
+      "categories": "Bijoux",
+      "total_products": 2954,
+      "description":"Voici un exemple de description, juste pour améliorer l'aspect de la chose"
+    }
+  ]
+}

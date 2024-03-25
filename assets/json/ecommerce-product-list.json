@@ -1,0 +1,184 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "product_name": "iPhone 14 Pro",
+      "category": 2,
+      "ref": 124,
+      "info": "Super Retina XDR display footnote Pro Motion technology",
+      "price": "€999",
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": 3,
+      "image": "1.jpg",
+      "product_brand": "Super Retina XDR display footnote Pro Motion technology",
+      "institut_nom": "Exemple Institut 9",
+      "institut_id": 1
+    },
+    {
+      "id": 2,
+      "product_name": "Echo Dot (4th Gen)",
+      "category": 2,
+      "ref": 450,
+      "info": "Echo Dot Smart speaker with Alexa",
+      "price": "€25.50",
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": 2,
+      "image": "2.jpg",
+      "product_brand": "Echo Dot Smart speaker with Alexa",
+      "institut_nom": "Exemple Institut 8",
+      "institut_id": 2
+    },
+    {
+      "id": 3,
+      "product_name": "Samsung Galaxy S22 Ultra",
+      "category": 2,
+      "ref": 300,
+      "info": "Dynamic AMOLED 2X, 120Hz, HDR10+",
+      "price": "€1199",
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": 3,
+      "image": "3.jpg",
+      "product_brand": "Samsung",
+      "institut_nom": "Exemple Institut 7",
+      "institut_id": 3
+    },
+    {
+      "id": 4,
+      "product_name": "Sony PlayStation 5",
+      "category": 3,
+      "ref": 670,
+      "info": "Experience lightning-fast loading with an ultra-high-speed SSD, deeper immersion with support for haptic feedback, adaptive triggers, and 3D Audio.",
+      "price": "€499",
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": 1,
+      "image": "4.jpg",
+      "product_brand": "Sony",
+      "institut_nom": "Exemple Institut 6",
+      "institut_id": 4
+    },
+    {
+      "id": 5,
+      "product_name": "Apple Watch Series 7",
+      "category": 1,
+      "ref": 320,
+      "info": "The largest and most advanced display yet.",
+      "price": "€399",
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": 2,
+      "image": "5.jpg",
+      "product_brand": "Apple",
+      "institut_nom": "Exemple Institut 5",
+      "institut_id": 5
+    },
+    {
+      "id": 6,
+      "product_name": "Canon EOS R5",
+      "category": 4,
+      "ref": 870,
+      "info": "45MP Full-Frame CMOS Sensor, DIGIC X Image Processor, 8K30 Raw and 4K120 10-Bit Internal Video.",
+      "price": "€3899",
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": 3,
+      "image": "6.jpg",
+      "product_brand": "Canon",
+      "institut_nom": "Exemple Institut 4",
+      "institut_id": 6
+    },
+    {
+      "id": 7,
+      "product_name": "Bose QuietComfort 45",
+      "category": 5,
+      "ref": 420,
+      "info": "Acoustic Noise Cancelling, Aware mode for hearing what's around you.",
+      "price": "€329",
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": 1,
+      "image": "7.jpg",
+      "product_brand": "Bose",
+      "institut_nom": "Exemple Institut 3",
+      "institut_id": 7
+    },
+    {
+      "id": 8,
+      "product_name": "DJI Mini 2",
+      "category": 6,
+      "ref": 560,
+      "info": "Ultra-light and portable, 4x Zoom, 4K Video, 31-Min Flight Time, 10km HD Video Transmission.",
+      "price": "€459",
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": 2,
+      "image": "8.jpg",
+      "product_brand": "DJI",
+      "institut_nom": "Exemple Institut 2",
+      "institut_id": 8
+    },
+    {
+      "id": 9,
+      "product_name": "Nintendo Switch OLED Model",
+      "category": 3,
+      "ref": 770,
+      "info": "OLED Screen, Enhanced audio, 64 GB internal storage.",
+      "price": "€349",
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": 3,
+      "image": "9.jpg",
+      "product_brand": "Nintendo",
+      "institut_nom": "Exemple Institut 1",
+      "institut_id": 9
+    },
+    {
+      "id": 10,
+      "product_name": "Microsoft Surface Laptop 4",
+      "category": 7,
+      "ref": 680,
+      "info": "13.5” or 15” PixelSense™ Touchscreen, 11th Gen Intel® Core™ Processor.",
+      "price": "€999",
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": 1,
+      "image": "10.jpg",
+      "product_brand": "Microsoft",
+      "institut_nom": "Exemple Institut 10",
+      "institut_id": 10
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+    "data": [
+      {
+        "id": 1,
+        "categories": "Marque",
+        
+        "description":"Voici un exemple de description, juste pour améliorer l'aspect de la chose"
+      },
+      {
+        "id": 2,
+        "categories": "Genre",
+       
+        "description":"Voici un exemple de description, juste pour améliorer l'aspect de la chose"
+      },
+      {
+        "id": 3,
+        "categories": "Catégorie de peau",
+       
+        "description":"Voici un exemple de description, juste pour améliorer l'aspect de la chose"
+      },
+      {
+        "id": 4,
+        "categories": "Catégorie de soins",
+       
+        "description":"Voici un exemple de description, juste pour améliorer l'aspect de la chose"
+      },
+      {
+        "id": 5,
+        "categories": "Conseil d'utilisation",
+       
+        "description":"Voici un exemple de description, juste pour améliorer l'aspect de la chose"
+      },
+      {
+        "id": 6,
+        "categories": "Catégorie de cosmétique",
+       
+        "description":"Voici un exemple de description, juste pour améliorer l'aspect de la chose"
+      }
+    ]
+  }
+  

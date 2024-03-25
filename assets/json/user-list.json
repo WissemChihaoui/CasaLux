@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "id":0,
+      "company":"Société 0",
+      "adresse":"Adresse 123, adresse de société 123",
+      "interlocution": [
+        {
+          "id":0,
+          "name":"Jon Doe",
+          "mail":"jon@doe.com",
+          "tel":"+012345678"
+        },
+        {
+          "id":1,
+          "name":"Jon Doe",
+          "mail":"jon@doe.com",
+          "tel":"+012345678"
+        }
+
+      ],
+      "tel":"+012345678",
+      "mail":"company@mail.com"
+    },
+    {
+      "id":1,
+      "company":"Société 1",
+      "adresse":"Adresse 123, adresse de société 123",
+      "interlocution": [
+        {
+          "id":0,
+          "name":"Jon Doe",
+          "mail":"jon@doe.com",
+          "tel":"+012345678"
+        },
+        {
+          "id":1,
+          "name":"Jon Doe",
+          "mail":"jon@doe.com",
+          "tel":"+012345678"
+        },
+        {
+          "id":2,
+          "name":"Jon Doe",
+          "mail":"jon@doe.com",
+          "tel":"+012345678"
+        }
+
+      ],
+      "tel":"+012345678",
+      "mail":"company@mail.com"
+    }
+  ]
+}

@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../../../assets/"
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Voir Votre Commande | E-Tickets   | CasaLux</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../assets/img/logo-ico.png" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&ampdisplay=swap"
+      rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="../../../assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/fonts/tabler-icons.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/fonts/flag-icons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../../../assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../../../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../../../assets/vendor/libs/node-waves/node-waves.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/libs/sweetalert2/sweetalert2.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/libs/select2/select2.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/libs/@form-validation/umd/styles/index.min.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="../../../assets/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="../../../assets/vendor/js/template-customizer.js"></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../../../assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="../../index.html" class="app-brand-link">
+              <img src="../../../assets/img/logo.svg" alt="" width="60">
+              <span class="app-brand-text demo menu-text fw-bold">CasaLux</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+              <i class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle"></i>
+              <i class="ti ti-x d-block d-xl-none ti-sm align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-1">
+            <!-- Apps & Pages -->
+           
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-users"></i>
+                <div>Partenaires CasaLux</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="../fournisseur/" class="menu-link">
+                    <div>Fournisseurs</div>
+                  </a>
+                </li>
+<li class="menu-item">
+                  <a href="../partenaire/index.html" class="menu-link">
+                    <div>Partenaires</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="../institue/index.html" class="menu-link">
+                    <div>Instituts & Spas</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-box"></i>
+                <div>Produits</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item ">
+                  <a href="../products/index.html" class="menu-link">
+                    <div>Liste de produits</div>
+                  </a>
+                </li>
+                <li class="menu-item ">
+                  <a href="../products/add.html" class="menu-link">
+                    <div>Ajouter un produit</div>
+                  </a>
+                </li>
+                <li class="menu-item ">
+                  <a href="../products/categorie.html" class="menu-link">
+                    <div>Catégories </div>
+                  </a>
+                </li>
+                <li class="menu-item ">
+                  <a href="../products/variants.html" class="menu-link">
+                    <div>Variantes </div>
+                  </a>
+                </li>
+
+              </ul>
+            </li>
+            <li class="menu-item open active">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-shopping-cart"></i>
+                <div>Commandes</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="./index.html" class="menu-link">
+                    <div>Liste des commandes</div>
+                  </a>
+                </li>
+                <li class="menu-item ">
+                  <a href="./add.html" class="menu-link">
+                    <div>Ajouter un commande</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            
+            <li class="menu-item">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons ti ti-users"></i>
+                    <div>Clients</div>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item">
+                      <a href="../clients/index.html" class="menu-link">
+                        <div>Liste des clients</div>
+                      </a>
+                    </li>
+                  </ul>
+            </li>
+            <li class="menu-item">
+              <a href="/admin/pages/bugs/index.html" class="menu-link ">
+                  <i class="menu-icon tf-icons ti ti-bug"></i>
+                  <div>Notes</div>
+              </a>
+          </li>
+          </ul>
+        </aside>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+
+          <nav
+            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            id="layout-navbar">
+            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                <i class="ti ti-menu-2 ti-sm"></i>
+              </a>
+            </div>
+
+            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+              
+
+              <ul class="navbar-nav flex-row align-items-center ms-auto">
+                <!-- Notification -->
+                <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
+                  <a
+                    class="nav-link dropdown-toggle hide-arrow"
+                    href="javascript:void(0);"
+                    data-bs-toggle="dropdown"
+                    data-bs-auto-close="outside"
+                    aria-expanded="false">
+                    <i class="ti ti-bell ti-md"></i>
+                    <span class="badge bg-danger rounded-pill badge-notifications">1</span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end py-0">
+                    <li class="dropdown-menu-header border-bottom">
+                      <div class="dropdown-header d-flex align-items-center py-3">
+                        <h5 class="text-body mb-0 me-auto">Notification</h5>
+                        <a
+                          href="javascript:void(0)"
+                          class="dropdown-notifications-all text-body"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Mark all as read"
+                          ><i class="ti ti-mail-opened fs-4"></i
+                        ></a>
+                      </div>
+                    </li>
+                    <li class="dropdown-notifications-list scrollable-container">
+                      <ul class="list-group list-group-flush">
+                       
+                        <li class="list-group-item list-group-item-action dropdown-notifications-item">
+                          <div class="d-flex">
+                            <div class="flex-shrink-0 me-3">
+                              <div class="avatar">
+                                <span class="avatar-initial rounded-circle bg-label-danger">CF</span>
+                              </div>
+                            </div>
+                            <div class="flex-grow-1">
+                              <h6 class="mb-1">Charles Franklin</h6>
+                              <p class="mb-0">a consommé son étiquette à <span class="fw-bold">Example institue 9</span></p>
+                              <small class="text-muted">12hr ago</small>
+                            </div>
+                            <div class="flex-shrink-0 dropdown-notifications-actions">
+                              <a href="javascript:void(0)" class="dropdown-notifications-read"
+                                ><span class="badge badge-dot"></span
+                              ></a>
+                              <a href="javascript:void(0)" class="dropdown-notifications-archive"
+                                ><span class="ti ti-x"></span
+                              ></a>
+                            </div>
+                          </div>
+                        </li>
+                        
+                      </ul>
+                    </li>
+                    <li class="dropdown-menu-footer border-top">
+                      <a
+                        href="javascript:void(0);"
+                        class="dropdown-item d-flex justify-content-center text-primary p-2 h-px-40 mb-1 align-items-center">
+                        Voir touts les notifications
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <!--/ Notification -->
+
+                <!-- User -->
+                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                  <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                    <div class="avatar avatar-online">
+                      <img src="../../../assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <a class="dropdown-item" href="pages-account-settings-account.html">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar avatar-online">
+                              <img src="../../../assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <span class="fw-medium d-block">John Doe</span>
+                            <small class="text-muted">Admin</small>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="pages-profile-user.html">
+                        <i class="ti ti-user-check me-2 ti-sm"></i>
+                        <span class="align-middle">Mon Profile</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="pages-account-settings-account.html">
+                        <i class="ti ti-settings me-2 ti-sm"></i>
+                        <span class="align-middle">Paramètre</span>
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                   
+                    <li>
+                      <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
+                        <i class="ti ti-logout me-2 ti-sm"></i>
+                        <span class="align-middle">Déconnexion</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <!--/ User -->
+              </ul>
+            </div>
+
+            <!-- Search Small Screens -->
+            <div class="navbar-search-wrapper search-input-wrapper d-none">
+              <input
+                type="text"
+                class="form-control search-input container-xxl border-0"
+                placeholder="Search..."
+                aria-label="Search..." />
+              <i class="ti ti-x ti-sm search-toggler cursor-pointer"></i>
+            </div>
+          </nav>
+
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+                <h4 class="py-3 mb-0">
+                  <span class="text-muted fw-medium"><a href="./index.html" >Commande</a>/ </span><span class="fw-semibold"> Gérer Commande</span>
+                </h4>
+  
+                <div class="app-ecommerce">
+                  <!-- Add Product -->
+                  <div
+                    class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3">
+                    <div class="d-flex flex-column justify-content-center">
+                      <h4 class="mb-1 mt-3">Gérer votre commande</h4>
+                      <p class="text-muted">Vérifier les e-tickets pour qu'il soit prêt à l'usage</p>
+                    </div>
+                    <div class="d-flex align-content-center flex-wrap gap-3">
+                      <div class="d-flex gap-3">
+                        <button class="btn btn-label-secondary">Abandonner</button>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Terminé</button>
+                    </div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-12 col-lg-8">
+                      <div class="card mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                          <h5 class="card-title m-0">Les Produits</h5>
+                          <h6 class="m-0"><a href="./add.html">Modifier</a></h6>
+                        </div>
+                        <div class="card-datatable table-responsive">
+                          <table class="datatables-order-details table border-top">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th></th>
+                                <th class="w-50">Produits</th>
+                                <th class="w-25">Prix</th>
+                                <th class="w-25">Qte</th>
+                                <th>Total</th>
+                              </tr>
+                            </thead>
+                          </table>
+                          <div class="d-flex justify-content-end align-items-center m-3 mb-2 p-1">
+                            <div class="order-calculations">
+                              <div class="d-flex justify-content-between mb-2">
+                                <span class="w-px-100 text-heading">TOTAL HT:</span>
+                                <h6 class="mb-0">6398€</h6>
+                              </div>
+                              <div class="d-flex justify-content-between mb-2">
+                                <span class="w-px-100 text-heading">TAUX TVA:</span>
+                                <h6 class="mb-0">20%</h6>
+                              </div>
+                              <div class="d-flex justify-content-between mb-2">
+                                <span class="w-px-100 text-heading">TVA:</span>
+                                <h6 class="mb-0">30€</h6>
+                              </div>
+                              <div class="d-flex justify-content-between">
+                                <h6 class="w-px-100 mb-0">Total TTC:</h6>
+                                <h6 class="mb-0">6450€</h6>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <div class="col-12 col-lg-4">
+                      <div class="card mb-4">
+                        <div class="card-body">
+                          <label for="statusCommande" class="form-label">Statut</label>
+                          <select class="select form-select mb-2" id="statusCommande">
+                            <option value="En Attente">En Attente</option>
+                            <option value="Actif">Actif</option>
+                          </select>
+                          <a href="../bon-cadeau/bon-cadeau-view.html" target="_blank" class="btn btn-label-primary d-grid w-100 mb-2">Voir bon cadeau</a>
+                          <a href="../docs/facture.html" aria-disabled="true"  class="btn btn-label-primary d-grid w-100 mb-2">
+                            Voir facture
+                          </a>
+                          <a href="../docs/bon-commande.html"  class="btn btn-label-primary d-grid w-100 mb-2">
+                            Voir bon commande
+                          </a>
+                        </div>
+                      </div>
+                      <div class="card mb-4">
+                        <div class="card-header">
+                          <h6 class="card-title m-0">Partenaire</h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="d-flex justify-content-start align-items-center mb-4">
+                            <div class="avatar me-2">
+                              <img src="../../../assets/img/avatars/1.png" alt="Avatar" class="rounded-circle" />
+                            </div>
+                            <div class="d-flex flex-column">
+                              <a href="javascript:void(0)" class="text-body text-nowrap">
+                                <h6 class="mb-0">Shamus Tuttle</h6>
+                              </a>
+                              <small class="text-muted">Partenaire ID: #58909</small>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-start align-items-center mb-4">
+                            <span
+                              class="avatar rounded-circle bg-label-success me-2 d-flex align-items-center justify-content-center"
+                              ><i class="ti ti-shopping-cart ti-sm"></i
+                            ></span>
+                            <h6 class="text-body text-nowrap mb-0">12 Commandes</h6>
+                          </div>
+                          <div class="d-flex justify-content-between">
+                            <h6>Coordonnées</h6>
+                            
+                          </div>
+                          <p class="mb-1">Email: Shamus889@yahoo.com</p>
+                          <p class="mb-0">Téléphone: +1 (609) 972-22-22</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card mb-4 col-12">
+                      <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="card-title m-0">E-Tickets</h5>
+                        <h6 class="m-0"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalEditEtq">Modifier</a></h6>
+                      </div>
+                      <div class="card-body">
+                        <div class="row g-1">
+                          <div class="card col-md-4 col-6 p-2 mb-2">
+                            <div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1">
+                              <div class="item-badges">
+                                <div class="badge rounded-pill bg-label-info"> Actif</div>
+                              </div>
+                              
+                            </div><span class="kanban-text">4566-125-985-AC44S</span>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1">
+                              <div class="d-flex"> <span class="d-flex align-items-center me-2"><i class="ti ti-shopping-cart ti-xs me-1"></i><span
+                                    class="attachments">8</span></span> <span class="d-flex align-items-center me-2"><i class="ti ti-building ti-xs me-1"></i><span
+                                    class="attachments">4</span></span> </div>
+                              
+                            </div>
+                          </div>
+                          <div class="card col-md-4 col-6 p-2 mb-2">
+                            <div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1">
+                              <div class="item-badges">
+                                <div class="badge rounded-pill bg-label-info"> Actif</div>
+                              </div>
+                              
+                            </div><span class="kanban-text">4566-125-985-AC44S</span>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1">
+                              <div class="d-flex"> <span class="d-flex align-items-center me-2"><i class="ti ti-shopping-cart ti-xs me-1"></i><span
+                                    class="attachments">8</span></span> <span class="d-flex align-items-center me-2"><i class="ti ti-building ti-xs me-1"></i><span
+                                    class="attachments">4</span></span> </div>
+                              
+                            </div>
+                          </div>
+                          <div class="card col-md-4 col-6 p-2 mb-2">
+                            <div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1">
+                              <div class="item-badges">
+                                <div class="badge rounded-pill bg-label-info"> Actif</div>
+                              </div>
+                              
+                            </div><span class="kanban-text">4566-125-985-AC44S</span>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1">
+                              <div class="d-flex"> <span class="d-flex align-items-center me-2"><i class="ti ti-shopping-cart ti-xs me-1"></i><span
+                                    class="attachments">8</span></span> <span class="d-flex align-items-center me-2"><i class="ti ti-building ti-xs me-1"></i><span
+                                    class="attachments">4</span></span> </div>
+                              
+                            </div>
+                          </div>
+                          <div class="card col-md-4 col-6 p-2 mb-2">
+                            <div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1">
+                              <div class="item-badges">
+                                <div class="badge rounded-pill bg-label-info"> Actif</div>
+                              </div>
+                              
+                            </div><span class="kanban-text">4566-125-985-AC44S</span>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1">
+                              <div class="d-flex"> <span class="d-flex align-items-center me-2"><i class="ti ti-shopping-cart ti-xs me-1"></i><span
+                                    class="attachments">8</span></span> <span class="d-flex align-items-center me-2"><i class="ti ti-building ti-xs me-1"></i><span
+                                    class="attachments">4</span></span> </div>
+                              
+                            </div>
+                          </div>
+                          <div class="card col-md-4 col-6 p-2 mb-2">
+                            <div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1">
+                              <div class="item-badges">
+                                <div class="badge rounded-pill bg-label-warning"> A l'usage</div>
+                              </div>
+                              
+                            </div><span class="kanban-text">4566-125-985-AC44S</span>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1">
+                              <div class="d-flex"> <span class="d-flex align-items-center me-2"><i class="ti ti-shopping-cart ti-xs me-1"></i><span
+                                    class="attachments">8</span></span> <span class="d-flex align-items-center me-2"><i class="ti ti-building ti-xs me-1"></i><span
+                                    class="attachments">4</span></span> </div>
+                              
+                            </div>
+                          </div>
+                          <div class="card col-md-4 col-6 p-2 mb-2">
+                            <div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1">
+                              <div class="item-badges">
+                                <div class="badge rounded-pill bg-label-warning"> A l'usage</div>
+                              </div>
+                              
+                            </div><span class="kanban-text">4566-125-985-AC44S</span>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1">
+                              <div class="d-flex"> <span class="d-flex align-items-center me-2"><i class="ti ti-shopping-cart ti-xs me-1"></i><span
+                                    class="attachments">8</span></span> <span class="d-flex align-items-center me-2"><i class="ti ti-building ti-xs me-1"></i><span
+                                    class="attachments">4</span></span> </div>
+                              
+                            </div>
+                          </div>
+                          <div class="card col-md-4 col-6 p-2 mb-2">
+                            <div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1">
+                              <div class="item-badges">
+                                <div class="badge rounded-pill bg-label-warning"> A l'usage</div>
+                              </div>
+                              
+                            </div><span class="kanban-text">4566-125-985-AC44S</span>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1">
+                              <div class="d-flex"> <span class="d-flex align-items-center me-2"><i class="ti ti-shopping-cart ti-xs me-1"></i><span
+                                    class="attachments">8</span></span> <span class="d-flex align-items-center me-2"><i class="ti ti-building ti-xs me-1"></i><span
+                                    class="attachments">4</span></span> </div>
+                              
+                            </div>
+                          </div>
+                          <div class="card col-md-4 col-6 p-2 mb-2">
+                            <div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1">
+                              <div class="item-badges">
+                                <div class="badge rounded-pill bg-label-danger"> Expirée</div>
+                              </div>
+                              
+                            </div><span class="kanban-text">4566-125-985-AC44S</span>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1">
+                              <div class="d-flex"> <span class="d-flex align-items-center me-2"><i class="ti ti-shopping-cart ti-xs me-1"></i><span
+                                    class="attachments">8</span></span> <span class="d-flex align-items-center me-2"><i class="ti ti-building ti-xs me-1"></i><span
+                                    class="attachments">4</span></span> </div>
+                              
+                            </div>
+                          </div>
+                          <div class="card col-md-4 col-6 p-2 mb-2">
+                            <div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1">
+                              <div class="item-badges">
+                                <div class="badge rounded-pill bg-label-danger"> Expirée</div>
+                              </div>
+                              
+                            </div><span class="kanban-text">4566-125-985-AC44S</span>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1">
+                              <div class="d-flex"> <span class="d-flex align-items-center me-2"><i class="ti ti-shopping-cart ti-xs me-1"></i><span
+                                    class="attachments">8</span></span> <span class="d-flex align-items-center me-2"><i class="ti ti-building ti-xs me-1"></i><span
+                                    class="attachments">4</span></span> </div>
+                              
+                            </div>
+                          </div>
+                          <div class="card col-md-4 col-6 p-2 mb-2">
+                            <div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1">
+                              <div class="item-badges">
+                                <div class="badge rounded-pill bg-label-danger"> Expirée</div>
+                              </div>
+                              
+                            </div><span class="kanban-text">4566-125-985-AC44S</span>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1">
+                              <div class="d-flex"> <span class="d-flex align-items-center me-2"><i class="ti ti-shopping-cart ti-xs me-1"></i><span
+                                    class="attachments">8</span></span> <span class="d-flex align-items-center me-2"><i class="ti ti-building ti-xs me-1"></i><span
+                                    class="attachments">4</span></span> </div>
+                              
+                            </div>
+                          </div>
+                          <div class="card col-md-4 col-6 p-2 mb-2">
+                            <div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1">
+                              <div class="item-badges">
+                                <div class="badge rounded-pill bg-label-danger"> Expirée</div>
+                              </div>
+                              
+                            </div><span class="kanban-text">4566-125-985-AC44S</span>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1">
+                              <div class="d-flex"> <span class="d-flex align-items-center me-2"><i class="ti ti-shopping-cart ti-xs me-1"></i><span
+                                    class="attachments">8</span></span> <span class="d-flex align-items-center me-2"><i class="ti ti-building ti-xs me-1"></i><span
+                                    class="attachments">4</span></span> </div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="modal fade" id="modalEditEtq" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog " role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Modifier le nombre d'E-Tickets</h5>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <input type="number" min="0" name="" id="" class="form-control">
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+                        Fermer
+                    </button>
+                    <button type="button" class="btn btn-primary">Modifier</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../../../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../../../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../../../assets/vendor/js/bootstrap.js"></script>
+    <script src="../../../assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="../../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../../../assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="../../../assets/vendor/libs/i18n/i18n.js"></script>
+    <script src="../../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="../../../assets/vendor/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="../../../assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+    <script src="../../../assets/vendor/libs/cleavejs/cleave.js"></script>
+    <script src="../../../assets/vendor/libs/cleavejs/cleave-phone.js"></script>
+    <script src="../../../assets/vendor/libs/select2/select2.js"></script>
+    <script src="../../../assets/vendor/libs/@form-validation/umd/bundle/popular.min.js"></script>
+    <script src="../../../assets/vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+    <script src="../../../assets/vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
+    <script src="../../../assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
+
+    <!-- Main JS -->
+    <script src="../../../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="../../../assets/js/app-ecommerce-order-details.js"></script>
+    <script src="../../../assets/js/modal-edit-user.js"></script>
+    <script src="../../../assets/js/modal-add-new-address.js"></script>
+
+  </body>
+</html>
