@@ -20,11 +20,11 @@ $(function () {
 
   // Variable declaration for table
   var dt_product_table = $('.datatables-products'),
-    productAdd = 'app-ecommerce-product-add.html',
+    productAdd = 'add.html',
     statusObj = {
-      1: { title: 'Scheduled', class: 'bg-label-warning' },
-      2: { title: 'Publish', class: 'bg-label-success' },
-      3: { title: 'Inactive', class: 'bg-label-danger' }
+      1: { title: 'Programmée', class: 'bg-label-warning' },
+      2: { title: 'Publier', class: 'bg-label-success' },
+      3: { title: 'Inactif', class: 'bg-label-danger' }
     },
     categoryObj = {
       0: { title: 'Household' },
@@ -39,8 +39,8 @@ $(function () {
       1: { title: 'In_Stock' }
     },
     stockFilterValObj = {
-      0: { title: 'Out of Stock' },
-      1: { title: 'In Stock' }
+      0: { title: 'En rupture de stock' },
+      1: { title: 'En stock' }
     };
 
   // E-commerce Products datatable
@@ -52,12 +52,13 @@ $(function () {
         // columns according to JSON
         { data: 'id' },
         { data: 'id' },
+        { data: 'sku' },
         { data: 'product_name' },
         { data: 'category' },
         { data: 'stock' },
-        { data: 'sku' },
-        { data: 'price' },
-        { data: 'quantity' },
+        
+        { data: 'product_brand' },
+       
         { data: 'status' },
         { data: '' }
       ],
@@ -87,58 +88,18 @@ $(function () {
         },
         {
           // Product name and product_brand
-          targets: 2,
-          responsivePriority: 1,
+          targets: 3,
+          responsivePriority: 2,
           render: function (data, type, full, meta) {
-            var $name = full['product_name'],
-              $id = full['id'],
-              $product_brand = full['product_brand'],
-              $image = full['image'];
-            if ($image) {
-              // For Product image
-
-              var $output =
-                '<img src="' +
-                assetsPath +
-                'img/ecommerce-images/' +
-                $image +
-                '" alt="Product-' +
-                $id +
-                '" class="rounded-2">';
-            } else {
-              // For Product badge
-              var stateNum = Math.floor(Math.random() * 6);
-              var states = ['success', 'danger', 'warning', 'info', 'dark', 'primary', 'secondary'];
-              var $state = states[stateNum],
-                $name = full['product_brand'],
-                $initials = $name.match(/\b\w/g) || [];
-              $initials = (($initials.shift() || '') + ($initials.pop() || '')).toUpperCase();
-              $output = '<span class="avatar-initial rounded-2 bg-label-' + $state + '">' + $initials + '</span>';
-            }
-            // Creates full output for Product name and product_brand
-            var $row_output =
-              '<div class="d-flex justify-content-start align-items-center product-name">' +
-              '<div class="avatar-wrapper">' +
-              '<div class="avatar avatar me-2 rounded-2 bg-label-secondary">' +
-              $output +
-              '</div>' +
-              '</div>' +
-              '<div class="d-flex flex-column">' +
-              '<h6 class="text-body text-nowrap mb-0">' +
-              $name +
-              '</h6>' +
-              '<small class="text-muted text-truncate d-none d-sm-block">' +
-              $product_brand +
-              '</small>' +
-              '</div>' +
-              '</div>';
-            return $row_output;
+            var $name = full['product_name'];
+            
+            return $name;
           }
         },
         {
           // Product Category
 
-          targets: 3,
+          targets: 4,
           responsivePriority: 5,
           render: function (data, type, full, meta) {
             var $category = categoryObj[full['category']].title;
@@ -165,7 +126,7 @@ $(function () {
         },
         {
           // Stock
-          targets: 4,
+          targets: 5,
           orderable: false,
           responsivePriority: 3,
           render: function (data, type, full, meta) {
@@ -200,7 +161,7 @@ $(function () {
         },
         {
           // Sku
-          targets: 5,
+          targets: 2,
           render: function (data, type, full, meta) {
             var $sku = full['sku'];
 
@@ -211,21 +172,12 @@ $(function () {
           // price
           targets: 6,
           render: function (data, type, full, meta) {
-            var $price = full['price'];
+            var $price = full['product_brand'];
 
             return '<span>' + $price + '</span>';
           }
         },
-        {
-          // qty
-          targets: 7,
-          responsivePriority: 4,
-          render: function (data, type, full, meta) {
-            var $qty = full['qty'];
-
-            return '<span>' + $qty + '</span>';
-          }
-        },
+        
         {
           // Status
           targets: -2,
@@ -251,12 +203,7 @@ $(function () {
             return (
               '<div class="d-inline-block text-nowrap">' +
               '<button class="btn btn-sm btn-icon"><i class="ti ti-edit"></i></button>' +
-              '<button class="btn btn-sm btn-icon delete-record"><i class="ti ti-trash"></i></button>' +
-              '<button class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical me-2"></i></button>' +
-              '<div class="dropdown-menu dropdown-menu-end m-0">' +
-              '<a href="javascript:0;" class="dropdown-item">View</a>' +
-              '<a href="javascript:0;" class="dropdown-item">Suspend</a>' +
-              '</div>' +
+              '<button class="btn btn-sm btn-icon delete-record"><i class="ti ti-trash"></i></button>' +              
               '</div>'
             );
           }
@@ -274,21 +221,39 @@ $(function () {
         '>',
       lengthMenu: [7, 10, 20, 50, 70, 100], //for length of menu
       language: {
-        sLengthMenu: '_MENU_',
-        search: '',
-        searchPlaceholder: 'Search Product',
-        info: 'Displaying _START_ to _END_ of _TOTAL_ entries'
-      },
+        sEmptyTable:     "Aucune donnée disponible dans le tableau",
+        sInfo:           "Affichage de l'élément _START_ à _END_ sur _TOTAL_ éléments",
+        sInfoEmpty:      "Affichage de l'élément 0 à 0 sur 0 élément",
+        sInfoFiltered:   "(filtré à partir de _MAX_ éléments au total)",
+        sInfoPostFix:    "",
+        sInfoThousands:  ",",
+        sLengthMenu:     "Afficher _MENU_ éléments",
+        sLoadingRecords: "Chargement...",
+        sProcessing:     "Traitement...",
+        sSearch:         "",
+        sZeroRecords:    "Aucun résultat trouvé",
+        oPaginate: {
+            sFirst:    "Premier",
+            sLast:     "Dernier",
+            sNext:     "Suivant",
+            sPrevious: "Précédent"
+        },
+        oAria: {
+            sSortAscending:  ": activer pour trier la colonne par ordre croissant",
+            sSortDescending: ": activer pour trier la colonne par ordre décroissant"
+        },
+        searchPlaceholder: "Chercher.."
+      },      
       // Buttons with Dropdown
       buttons: [
         {
           extend: 'collection',
           className: 'btn btn-label-secondary dropdown-toggle me-3',
-          text: '<i class="ti ti-download me-1 ti-xs"></i>Export',
+          text: '<i class="ti ti-download me-1 ti-xs"></i>Exporter',
           buttons: [
             {
               extend: 'print',
-              text: '<i class="ti ti-printer me-2" ></i>Print',
+              text: '<i class="ti ti-printer me-2" ></i>Imprimer',
               className: 'dropdown-item',
               exportOptions: {
                 columns: [1, 2, 3, 4, 5, 6, 7],
@@ -393,7 +358,7 @@ $(function () {
             },
             {
               extend: 'copy',
-              text: '<i class="ti ti-copy me-2"></i>Copy',
+              text: '<i class="ti ti-copy me-2"></i>Copier',
               className: 'dropdown-item',
               exportOptions: {
                 columns: [1, 2, 3, 4, 5, 6, 7],
@@ -417,7 +382,7 @@ $(function () {
           ]
         },
         {
-          text: '<i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Add Product</span>',
+          text: '<i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Ajouter Produit</span>',
           className: 'add-new btn btn-primary ms-2 ms-sm-0',
           action: function () {
             window.location.href = productAdd;
@@ -464,7 +429,7 @@ $(function () {
           .every(function () {
             var column = this;
             var select = $(
-              '<select id="ProductStatus" class="form-select text-capitalize"><option value="">Status</option></select>'
+              '<select id="ProductStatus" class="form-select text-capitalize"><option value="">Statut</option></select>'
             )
               .appendTo('.product_status')
               .on('change', function () {
@@ -482,11 +447,11 @@ $(function () {
           });
         // Adding category filter once table initialized
         this.api()
-          .columns(3)
+          .columns(4)
           .every(function () {
             var column = this;
             var select = $(
-              '<select id="ProductCategory" class="form-select text-capitalize"><option value="">Category</option></select>'
+              '<select id="ProductCategory" class="form-select text-capitalize"><option value="">Catégorie</option></select>'
             )
               .appendTo('.product_category')
               .on('change', function () {
@@ -504,7 +469,7 @@ $(function () {
           });
         // Adding stock filter once table initialized
         this.api()
-          .columns(4)
+          .columns(5)
           .every(function () {
             var column = this;
             var select = $(

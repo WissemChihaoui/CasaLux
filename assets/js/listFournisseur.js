@@ -42,7 +42,7 @@ $(function () {
       ajax: assetsPath + 'json/fournisseur-list.json', // JSON file to add data
       columns: [
         // columns according to JSON
-        { data: '' },
+      
         { data: 'id' },
         { data: 'name' },
         { data: 'contact' },
@@ -51,17 +51,7 @@ $(function () {
         { data: 'action' }
       ],
       columnDefs: [
-        {
-          // For Responsive
-          className: 'control',
-          searchable: false,
-          orderable: false,
-          responsivePriority: 2,
-          targets: 0,
-          render: function (data, type, full, meta) {
-            return '';
-          }
-        },
+        
         {
           // User full name and email
           targets: 1,
