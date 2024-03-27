@@ -21,6 +21,7 @@ $(function () {
   // Variable declaration for table
   var dt_user_table = $('.datatables-fournisseurs'),
     select2 = $('.select2'),
+    addFournisseur = 'add.html',
     userView = 'app-user-view-account.html',
     statusObj = {
       1: { title: 'Pending', class: 'bg-label-warning' },
@@ -42,23 +43,35 @@ $(function () {
       ajax: assetsPath + 'json/fournisseur-list.json', // JSON file to add data
       columns: [
         // columns according to JSON
-      
-        { data: 'id' },
-        { data: 'name' },
-        { data: 'contact' },
-        { data: 'products' },
-        { data: 'description' },
+        { data: '' },
+        { data: 'company' },
+        { data: 'adresse' },
+        { data: 'interlocution' },
+        { data: 'mail' },
+        { data: 'tel' },
         { data: 'action' }
       ],
       columnDefs: [
-        
+        {
+          // For Responsive
+          className: 'control',
+          searchable: false,
+          orderable: false,
+          responsivePriority: 2,
+          targets: 0,
+          render: function (data, type, full, meta) {
+            return '';
+          }
+        },
         {
           // User full name and email
           targets: 1,
           searchable: true,
           responsivePriority: 4,
           render: function (data, type, full, meta) {
-            var $company = full['name'];
+            var $company = full['company'],
+              $id = full['id'];
+            
              return($company )
           }
         },
@@ -81,7 +94,11 @@ $(function () {
           orderable: false
         
         },       
-              
+        {
+          targets:5,
+          searchable:false,
+          orderable: false
+        },       
         {
           // Actions
           targets: -1,
@@ -275,11 +292,10 @@ $(function () {
           ]
         },
         {
-          text: '<i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Ajouter un fournisseur</span>',
-          className: 'add-new btn btn-primary',
-          attr: {
-            'data-bs-toggle': 'offcanvas',
-            'data-bs-target': '#offcanvasAddUser'
+          text: '<i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Ajouter Client</span>',
+          className: 'add-new btn btn-primary ms-2 ms-sm-0',
+          action: function () {
+            window.location.href = addFournisseur;
           }
         }
       ],

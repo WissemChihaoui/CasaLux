@@ -41,10 +41,9 @@
     <link rel="stylesheet" href="/assets/vendor/libs/node-waves/node-waves.css" />
     <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="/assets/vendor/libs/typeahead-js/typeahead.css" />
-    <link rel="stylesheet" href="/assets/vendor/libs/select2/select2.css" />
-    <link rel="stylesheet" href="/assets/vendor/libs/flatpickr/flatpickr.css" />
-    <link rel="stylesheet" href="/assets/vendor/libs/bootstrap-select/bootstrap-select.css" />
-    <link rel="stylesheet" href="/assets/vendor/libs/tagify/tagify.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
 
     <!-- Page CSS -->
 
@@ -124,20 +123,20 @@
             </li>
 
             <!-- Clients -->
-            <li class="menu-item">
+            <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-users"></i>
                 <div>Clients</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item">
+                <li class="menu-item active">
                   <a href="/pages/client/index.html" class="menu-link">
                     <div>Liste Des Clients</div>
                   </a>
                 </li>
               </ul>
             </li>
-            
+
             <!-- Devis -->
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -382,155 +381,92 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-                  <h4 class="py-3 mb-0">
-                    <span class="text-muted fw-medium"><a href="./index.html" >Commande</a> /</span><span class="fw-semibold"> Ajouter Commande</span>
-                  </h4>
-                  <div class="app-ecommerce">
-                    <!-- Add Product -->
-                    <div
-                      class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3">
-                      <div class="d-flex flex-column justify-content-center">
-                        <h4 class="mb-1 mt-3">Ajouter un nouveau commande</h4>
-                        <p class="text-muted">Choisir les produits pour cette commande</p>
-                      </div>
-                      <div class="d-flex align-content-center flex-wrap gap-3">
-                        <div class="d-flex gap-3">
-                          <button class="btn btn-label-secondary">Abandonner</button>
-                        </div>
-                        <a href="./manage.html">
-                          <button type="submit" class="btn btn-primary">Suivant</button>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                      
-                            <!-- Organize Card -->
-                            <div class="card mb-4 ">
-                              <div class="card-header ">
-                                <h5 class="card-title mb-0">Client</h5>
-                              </div>
-                              <div class="card-body row">
-                                <!-- Vendor -->
-                                <div class="mb-3 col ecommerce-select2-dropdown col-12 col-md-6">
-                                  <label class="form-label mb-1" for="vendor"> Client </label>
-                                  <select id="vendor" class="select2 form-select" data-placeholder="Choisir Partenaire">
-                                    <option value="">Choisir Client</option>
-                                    <option value="Jon Doe">Jon Doe</option>
-                                    <option value="Jane Doe">Jane Doe</option>
-                                  </select>
-                                </div>
-                                
-                                <!-- Tags -->
-                               
-                              </div>
-                            </div>
-                            <!-- /Organize Card -->
-                          </div>
-                      <!-- First column-->
-                      <div class="col-12">
-                        <!-- Variants -->
-                        <div class="card mb-4">
-                          <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0 card-title">Les produits</h5>
-                          </div>
-                          <div class="card-body">
-                            <div class="form-repeater">
-                              <div data-repeater-list="group-a">
-                                <div data-repeater-item>
-                                  <div class="row">
-                                      <div class="mb-3 col-md-1">
-                                          <button class="btn btn-label-danger btn-sm h-100 delete-row" data-repeater-delete>
-                                              <i class="ti ti-trash"></i>
-                                          </button>
-                                      </div>
-                                      <div class="mb-3 col-md-3">
-                                          <label class="form-label" for="form-repeater-1-2">Fournisseur</label>
-                                          <select id="form-repeater-1-2" class="select2 form-select" data-placeholder="">
-                                            <option value="Fournisseur 1">Fournisseur 1</option>
-                                            <option value="Fournisseur 2">Fournisseur 2</option>
-                                            <option value="Fournisseur 3">Fournisseur 3</option>
-                                            <option value="Fournisseur 4">Fournisseur 4</option>
-                                            <option value="Fournisseur 5">Fournisseur 5</option>
-                                            <option value="Fournisseur 6">Fournisseur 6</option>
-                                          </select>
-                                        </div>
-                                    <div class="mb-3 col-md-3">
-                                      <label class="form-label" for="form-repeater-1-1">Produit</label>
-                                      <select id="form-repeater-1-1" class="select2 form-select" data-placeholder="">
-                                        <option value="Produit 1">Produit 1</option>
-                                        <option value="Produit 2">Produit 2</option>
-                                        <option value="Produit 3">Produit 3</option>
-                                        <option value="Produit 4">Produit 4</option>
-                                        <option value="Produit 5">Produit 5</option>
-                                        <option value="Produit 6">Produit 6</option>
-                                      </select>
-                                    </div>
-                                    
-    
-                                    <div class="mb-3 col-md-3">
-                                      <label class="form-label" for="form-repeater-1-3">Qte</label>
-                                      <input
-                                        type="number"
-                                        id="form-repeater-1-3"
-                                        class="form-control"
-                                        value="1"
-                                        min="1"
-                                        placeholder="Qte" />
-                                    </div>
-                                    <div class="mb-3 col-md-2">
-                                      <label class="form-label" for="form-repeater-1-4">Prix</label>
-                                      <input
-                                        type="number"
-                                        id="form-repeater-1-4"
-                                        class="form-control"
-                                        disabled
-                                        placeholder="Prix" />
-                                    </div>
+              <!-- Layout Demo -->
+              <h4 class="py-3 mb-2">Les Clients</h4>
   
-                                  </div>
-                                </div>
-                              </div>
-                              <div>
-                                <button class="btn btn-primary" data-repeater-create>Ajouter un produit</button>
-                              </div>
-                            </div>
-                            <hr>
-                            <div class="d-flex justify-content-end align-items-center m-3 mb-2 p-1">
-                              <div class="order-calculations">
-                                <div class="d-flex justify-content-between mb-2">
-                                  <span class="w-px-100 text-heading">TOTAL HT:</span>
-                                  <h6 class="mb-0">6398€</h6>
-                                </div>
-                                <div class="d-flex justify-content-between mb-2">
-                                  <span class="w-px-100 text-heading">TAUX TVA:</span>
-                                  <h6 class="mb-0">20%</h6>
-                                </div>
-                                <div class="d-flex justify-content-between mb-2">
-                                  <span class="w-px-100 text-heading">TVA:</span>
-                                  <h6 class="mb-0">30€</h6>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                  <h6 class="w-px-100 mb-0">Total TTC:</h6>
-                                  <h6 class="mb-0">6450€</h6>
-                                </div>
-                              </div>
-                            </div>
+                <!-- customers List Table -->
+                <div class="card">
+                  <div class="card-datatable table-responsive">
+                    <table class="datatables-customers table border-top">
+                      <thead>
+                        <tr>
+                          <th class="text-nowrap"></th>
+                          <th class="text-nowrap"></th>
+                          <th class="text-nowrap">Réf</th>
+                          <th class="text-nowrap">Nom/Société</th>
+                          <th class="text-nowrap">Nom Responsable</th>
+                          <th class="text-nowrap">Téléphone</th>
+                          <th class="text-nowrap">Email</th>
+                          <th class="text-nowrap">N° Matricule Fiscale</th>
+                          
+                          <th class="text-nowrap">Actions</th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                  <!-- Offcanvas to add new customer -->
+                  <div
+                    class="offcanvas offcanvas-end"
+                    tabindex="-1"
+                    id="offcanvasEcommerceCustomerAdd"
+                    aria-labelledby="offcanvasEcommerceCustomerAddLabel">
+                    <div class="offcanvas-header">
+                      <h5 id="offcanvasEcommerceCustomerAddLabel" class="offcanvas-title">Ajouter Client</h5>
+                      <button
+                        type="button"
+                        class="btn-close text-reset"
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body mx-0 flex-grow-0">
+                      <form class="ecommerce-customer-add pt-0" id="eCommerceCustomerAddForm" onsubmit="return false">
+                        <div class="ecommerce-customer-add-basic mb-3">
+                          
+                          <div class="mb-3">
+                            <label class="form-label" for="ecommerce-customer-add-name">Nom*</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="ecommerce-customer-add-name"
+                              placeholder="John Doe"
+                              name="customerName"
+                              aria-label="John Doe" />
+                          </div>
+                          <div class="mb-3">
+                            <label class="form-label" for="ecommerce-customer-add-email">Email*</label>
+                            <input
+                              type="text"
+                              id="ecommerce-customer-add-email"
+                              class="form-control"
+                              placeholder="john.doe@example.com"
+                              aria-label="john.doe@example.com"
+                              name="customerEmail" />
+                          </div>
+                          <div>
+                            <label class="form-label" for="ecommerce-customer-add-contact">Téléphone</label>
+                            <input
+                              type="text"
+                              id="ecommerce-customer-add-contact"
+                              class="form-control phone-mask"
+                              placeholder="+(123) 456-7890"
+                              aria-label="+(123) 456-7890"
+                              name="customerContact" />
                           </div>
                         </div>
-                        <!-- /Variants -->
-                        <!-- Inventory -->
+  
                         
-                        <!-- /Inventory -->
-                      </div>
-                      <!-- /Second column -->
-    
-                      
+                        
+                        <div class="pt-3">
+                          <button type="submit" class="btn btn-primary me-sm-3 me-1 data-submit">Ajouter</button>
+                          <button type="reset" class="btn btn-label-danger" data-bs-dismiss="offcanvas">Annuler</button>
+                        </div>
+                      </form>
                     </div>
                   </div>
-            </div>
+                </div>
+              </div>
               <!--/ Layout Demo -->
-           </div>
+            </div>
             <!-- / Content -->
 
             <div class="content-backdrop fade"></div>
@@ -564,15 +500,17 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
+    <script src="/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
     <script src="/assets/vendor/libs/select2/select2.js"></script>
-    <script src="/assets/vendor/libs/bootstrap-select/bootstrap-select.js"></script>
-    <script src="/assets/vendor/libs/flatpickr/flatpickr.js"></script>
-    <script src="/assets/vendor/libs/tagify/tagify.js"></script>
-    <script src="/assets/vendor/libs/jquery-repeater/jquery-repeater.js"></script>
+    <script src="/assets/vendor/libs/@form-validation/umd/bundle/popular.min.js"></script>
+    <script src="/assets/vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+    <script src="/assets/vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
+    <script src="/assets/vendor/libs/cleavejs/cleave.js"></script>
+    <script src="/assets/vendor/libs/cleavejs/cleave-phone.js"></script>
     <!-- Main JS -->
     <script src="/assets/js/main.js"></script>
 
     <!-- Page JS -->
-    <script src="/assets/js/addCommande.js"></script>
+    <script src="/assets/js/app-ecommerce-customer-all.js"></script>
   </body>
 </html>

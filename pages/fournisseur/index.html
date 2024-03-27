@@ -67,11 +67,10 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="/index.html" class="app-brand-link">
               <span class="app-brand-logo demo">
                <img src="/assets/img/logo.svg" alt="Logo" width="100"/>
               </span>
-              
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -121,6 +120,21 @@
                 <li class="menu-item">
                   <a href="/pages/commande/index.html" class="menu-link">
                     <div>Liste Des Commandes</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Clients -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-users"></i>
+                <div>Clients</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="/pages/client/index.html" class="menu-link">
+                    <div>Liste Des Clients</div>
                   </a>
                 </li>
               </ul>
@@ -185,7 +199,7 @@
                   <div class="dropdown-menu dropdown-menu-end py-0">
                     <div class="dropdown-menu-header border-bottom">
                       <div class="dropdown-header d-flex align-items-center py-3">
-                        <h5 class="text-body mb-0 me-auto">Ajouter</h5>
+                        <h5 class="text-body mb-0 me-auto">Raccourcis</h5>
                         <span class="text-body"><i class="ti ti-sm ti-apps"></i></span>
                       </div>
                     </div>  
@@ -220,6 +234,15 @@
                           </span>
                           <a href="/pages/categories/add.html" class="stretched-link">Catégorie</a>
                           <small class="text-muted mb-0">Ajouter Catégorie</small>
+                        </div>
+                      </div>
+                      <div class="row row-bordered overflow-visible g-0">
+                        <div class="dropdown-shortcuts-item col">
+                          <span class="dropdown-shortcuts-icon rounded-circle mb-2">
+                            <i class="ti ti-users fs-4"></i>
+                          </span>
+                          <a href="/pages/client/add.html" class="stretched-link">Client</a>
+                          <small class="text-muted mb-0">Ajouter Client</small>
                         </div>
                       </div>
                     </div>
@@ -371,11 +394,11 @@
                         <thead class="border-top">
                           <tr>
                             <th></th>
-                            <th>#ID</th>
                             <th>Fournisseur</th>
-                            <th>Contact</th>
-                            <th>Produits</th>
-                            <th>Description</th>
+                            <th>Adresse</th>
+                            <th>Interlocuteur</th>
+                            <th>Email</th>
+                            <th>Tél</th>
                             <th>Actions</th>
                           </tr>
                         </thead>
@@ -599,7 +622,162 @@
                       </div>
                     </div>
                   </div>
-              
+                  <div class="modal fade" id="viewInterlocuteurModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog " role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel2">Interlocuteur Pour (company name)</h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+                              Fermer
+                          </button>
+                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addInter">Ajouter Un Interlocuteur</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="deleteModalLabel">Confirmer la suppression</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                        </div>
+                        <div class="modal-body">
+                          Êtes-vous sûr de vouloir supprimer cet enregistrement ?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                          <button type="button" class="btn btn-danger" id="confirmDeleteProduct">Supprimer</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" id="addInter" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="addInterTitle">Ajouter Interlocateur</h5>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="row">
+                            <div class="col mb-3">
+                              <label for="nameWithTitle" class="form-label">Nom</label>
+                              <input
+                                type="text"
+                                id="nameWithTitle"
+                                class="form-control"
+                                placeholder="Enter Name" />
+                            </div>
+                          </div>
+                          <div class="row g-2">
+                            <div class="col mb-0">
+                              <label for="emailWithTitle" class="form-label">Email</label>
+                              <input
+                                type="email"
+                                id="emailWithTitle"
+                                class="form-control"
+                                placeholder="xxxx@xxx.xx" />
+                            </div>
+                            <div class="col mb-0">
+                              <label for="dobWithTitle" class="form-label">Num téléphone</label>
+                              <input type="text" id="dobWithTitle" class="form-control" placeholder="98 765 432"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+                            Annuler
+                          </button>
+                          <button type="button" class="btn btn-primary">Enregistrer</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" id="editInter" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="editInterTitle">Modifier Interlocateur</h5>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="row">
+                            <div class="col mb-3">
+                              <label for="nameWithTitle" class="form-label">Nom</label>
+                              <input
+                                type="text"
+                                id="nameWithTitle"
+                                class="form-control"
+                                placeholder="Jon Doe"
+                                value="Jon Doe" />
+                               
+                            </div>
+                          </div>
+                          <div class="row g-2">
+                            <div class="col mb-0">
+                              <label for="emailWithTitle" class="form-label">Email</label>
+                              <input
+                                type="email"
+                                id="emailWithTitle"
+                                class="form-control"
+                                placeholder="xxxx@xxx.xx"
+                                value="jon.doe@mail.com" />
+                            </div>
+                            <div class="col mb-0">
+                              <label for="dobWithTitle" class="form-label">Num téléphone</label>
+                              <input type="text" id="dobWithTitle" class="form-control" placeholder="98 765 432" value="98 765 654"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+                            Annuler
+                          </button>
+                          <button type="button" class="btn btn-primary">Modifier</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" id="deleteInter" tabindex="-1" aria-labelledby="deleteInterLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="deleteInterLabel">Confirmer la suppression</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                        </div>
+                        <div class="modal-body">
+                          Êtes-vous sûr de vouloir supprimer cet interlocateur ?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                          <button type="button" class="btn btn-danger" id="confirmDeleteInter">Supprimer</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
               </div>
               <!--/ Layout Demo -->
             </div>
