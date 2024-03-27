@@ -1,10 +1,11 @@
 /**
- * App eCommerce customer all
+ * app-ecommerce-order-list Script
  */
 
 'use strict';
 
 // Datatable (jquery)
+
 $(function () {
   let borderColor, bodyBg, headingColor;
 
@@ -19,33 +20,34 @@ $(function () {
   }
 
   // Variable declaration for table
-  var dt_customer_table = $('.datatables-customers'),
-    addClient = 'add.html',
-    select2 = $('.select2'),
-    customerView = 'view.html';
-  if (select2.length) {
-    var $this = select2;
-    $this.wrap('<div class="position-relative"></div>').select2({
-      placeholder: 'United States ',
-      dropdownParent: $this.parent()
-    });
-  }
 
-  // customers datatable
-  if (dt_customer_table.length) {
-    var dt_customer = dt_customer_table.DataTable({
-      ajax: assetsPath + 'json/ecommerce-customer-all.json', // JSON file to add data
+  var dt_order_table = $('.datatables-order'),
+  addCommande = 'add.html',
+    statusObj = {
+      1: { title: 'En Cours', class: 'bg-label-primary' },
+      2: { title: 'Payé', class: 'bg-label-success' },
+      3: { title: 'Retour', class: 'bg-label-danger' },
+      4: { title: 'Utilisé', class: 'bg-label-info' }
+    }
+
+  // E-commerce Products datatable
+
+  if (dt_order_table.length) {
+    var dt_products = dt_order_table.DataTable({
+      ajax: assetsPath + 'json/ecommerce-customer-order.json', // JSON file to add data
       columns: [
         // columns according to JSON
-        { data: '' },
         { data: 'id' },
-        { data: 'customer' },
-        { data: 'customer_id' },
-        { data: 'responsable'},
-        { data: 'email'},
-        { data: 'tel' },
-        { data: 'matricule' },
-        { data: ''}
+        { data: 'id' },
+        { data: 'order' },
+        { data: 'date' },
+        { data: 'customer' }, //email //avatar
+        { data: 'products' },
+      
+       
+        { data: 'status' },
+      
+        { data: '' }
       ],
       columnDefs: [
         {
@@ -63,63 +65,56 @@ $(function () {
           // For Checkboxes
           targets: 1,
           orderable: false,
-          searchable: false,
-          responsivePriority: 3,
-          checkboxes: true,
-          render: function () {
-            return '<input type="checkbox" class="dt-checkboxes form-check-input">';
-          },
           checkboxes: {
             selectAllRender: '<input type="checkbox" class="form-check-input">'
-          }
+          },
+          render: function () {
+            return '<input type="checkbox" class="dt-checkboxes form-check-input" >';
+          },
+          searchable: false
         },
-       
         {
-          // customer Role
+          // Order ID
           targets: 2,
           render: function (data, type, full, meta) {
-            var $id = full['customer_id'];
-
-            return "<span class='h6 mb-0'>#" + $id + '</span>';
+            var $order_id = full['order'];
+            // Creates full output for row
+            var $row_output = '<a href="manage.html?id='+$order_id+'"><span>#' + $order_id + '</span></a>';
+            return $row_output;
           }
         },
         {
-          // customer full name and email
+          // Date and Time
+          targets: -2,
+          render: function (data, type, full, meta) {
+            var date = new Date(full.date); // convert the date string to a Date object
+            var timeX = full['time'].substring(0, 5);
+            var formattedDate = date.toLocaleDateString('fr-FR', {
+              month: 'short',
+              day: 'numeric',
+              year: 'numeric',
+              time: 'numeric'
+            });
+            return '<span class="text-nowrap">' + formattedDate + ', ' + timeX + '</span>';
+          }
+        },
+        {
+          // Customers
           targets: 3,
           responsivePriority: 1,
           render: function (data, type, full, meta) {
             var $name = full['customer'],
-              $email = full['email'],
-              $image = full['image'];
-
-            if ($image) {
-              // For Avatar image
-              var $output =
-                '<img src="' + assetsPath + 'img/avatars/' + $image + '" alt="Avatar" class="rounded-circle">';
-            } else {
-              // For Avatar badge
-              var stateNum = Math.floor(Math.random() * 6);
-              var states = ['success', 'danger', 'warning', 'info', 'dark', 'primary', 'secondary'];
-              var $state = states[stateNum],
-                $name = full['customer'],
-                $initials = $name.match(/\b\w/g) || [];
-              $initials = (($initials.shift() || '') + ($initials.pop() || '')).toUpperCase();
-              $output = '<span class="avatar-initial rounded-circle bg-label-' + $state + '">' + $initials + '</span>';
-            }
+              $email = full['email'];
+              
+           
             // Creates full output for row
             var $row_output =
-              '<div class="d-flex justify-content-start align-items-center customer-name">' +
-              '<div class="avatar-wrapper">' +
-              '<div class="avatar me-2">' +
-              $output +
-              '</div>' +
-              '</div>' +
+              '<div class="d-flex justify-content-start align-items-center order-name text-nowrap">' +
+              
               '<div class="d-flex flex-column">' +
-              '<a href="' +
-              customerView +
-              '" ><span class="fw-medium">' +
+              '<h6 class="m-0"><a href="pages-profile-user.html" class="text-body">' +
               $name +
-              '</span></a>' +
+              '</a></h6>' +
               '<small class="text-muted">' +
               $email +
               '</small>' +
@@ -128,42 +123,35 @@ $(function () {
             return $row_output;
           }
         },
+       
+        
         {
-          // Plans
           targets: 4,
           render: function (data, type, full, meta) {
-            var $plans = full['responsable'];
-
-            return '<span>' + $plans + '</span>';
+            var $inst = full["inst"];
+            return('<button data-bs-toggle="modal" data-bs-target="#viewInstModal" type="button" class="btn text-nowrap btn-label-info d-inline-block">'+
+            '<span class="tf-icons ti-sm ti ti-shopping-cart"></span>'+
+            '<span class="badge bg-primary text-white badge-notifications">'+$inst.length+'</span>'+
+          '</button>'
+            );
           }
         },
         {
-          // customer Status
+          // Status
           targets: 5,
           render: function (data, type, full, meta) {
-            var $tel = full['tel'];
+            var $status = full['status'];
 
-            return '<span>' + $tel + '</span>';
+            return (
+              '<span class="badge px-2 ' +
+              statusObj[$status].class +
+              '" text-capitalized>' +
+              statusObj[$status].title +
+              '</span>'
+            );
           }
         },
-        {
-          // customer Spent
-          targets: 6,
-          render: function (data, type, full, meta) {
-            var $mail = full['email'];
-
-            return '<span class="h6 mb-0">' + $mail + '</span>';
-          }
-        },
-        {
-          // customer Spent
-          targets: -2,
-          render: function (data, type, full, meta) {
-            var $matricule = full['matricule'];
-            console.log($matricule)
-            return '<span class="h6 mb-0">' + $matricule + '</span>';
-          }
-        },
+       
         {
           // Actions
           targets: -1,
@@ -172,77 +160,72 @@ $(function () {
           orderable: false,
           render: function (data, type, full, meta) {
             return (
-              '<div class="d-inline-block text-nowrap">' +
-              '<a href="/pages/client/edit.html?id='+full['id']+'" class="btn btn-sm btn-icon"><i class="ti ti-edit"></i></a>' +
-              '<button class="btn btn-sm btn-icon delete-record"><i class="ti ti-trash"></i></button>' +              
+              '<div class="d-flex justify-content-sm-center align-items-sm-center">' +
+              '<button class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>' +
+              '<div class="dropdown-menu dropdown-menu-end m-0">' +
+              '<a href="manage.html" class="dropdown-item">Voir</a>' +
+              '<a href="javascript:0;" class="dropdown-item delete-record">' +
+              'Supprimer' +
+              '</a>' +
+              '</div>' +
               '</div>'
             );
           }
         }
       ],
-      order: [[3, 'desc']],
+      order: [3, 'asc'], //set any columns order asc/desc
       dom:
-        '<"card-header d-flex flex-wrap pb-md-2"' +
-        '<"d-flex align-items-center me-5"f>' +
-        '<"dt-action-buttons text-xl-end text-lg-start text-md-end text-start d-flex align-items-center justify-content-md-end gap-3 gap-sm-0 flex-wrap flex-sm-nowrap"lB>' +
+        '<"card-header pb-md-2 d-flex flex-column flex-md-row align-items-start align-items-md-center"<f><"d-flex align-items-md-center justify-content-md-end mt-2 mt-md-0 gap-2"l<"dt-action-buttons"B>>' +
         '>t' +
         '<"row mx-2"' +
         '<"col-sm-12 col-md-6"i>' +
         '<"col-sm-12 col-md-6"p>' +
         '>',
-
-        language: {
-          "sProcessing":     "Traitement en cours...",
-          "sLengthMenu":     "Afficher _MENU_ éléments",
-          "sZeroRecords":    "Aucun élément trouvé",
-          "sEmptyTable":     "Aucune donnée disponible dans le tableau",
-          "sInfo":           "Affichage de l'élément _START_ à _END_ sur _TOTAL_ éléments",
-          "sInfoEmpty":      "Affichage de l'élément 0 à 0 sur 0 élément",
-          "sInfoFiltered":   "(filtré à partir de _MAX_ éléments au total)",
-          "sInfoPostFix":    "",
-          "sSearch":         "Rechercher:",
-          "sUrl":            "",
-          "sInfoThousands":  ",",
-          "sLoadingRecords": "Chargement en cours...",
-          "oPaginate": {
-              "sFirst":    "Premier",
-              "sLast":     "Dernier",
-              "sNext":     "Suivant",
-              "sPrevious": "Précédent"
-          },
-          "oAria": {
-              "sSortAscending":  ": activer pour trier la colonne par ordre croissant",
-              "sSortDescending": ": activer pour trier la colonne par ordre décroissant"
-          },
-          "searchPlaceholder": "Rechercher...",
-          "sLengthMenu": '_MENU_',
-          "buttons": {
-              "copy": "Copier",
-              "colvis": "Visibilité"
-          }
-      },
-      
+      lengthMenu: [7, 10, 15, 30, 60], //for length of menu
+      language: {
+        sEmptyTable:     "Aucune donnée disponible dans le tableau",
+        sInfo:           "Affichage de l'élément _START_ à _END_ sur _TOTAL_ éléments",
+        sInfoEmpty:      "Affichage de l'élément 0 à 0 sur 0 élément",
+        sInfoFiltered:   "(filtré à partir de _MAX_ éléments au total)",
+        sInfoPostFix:    "",
+        sInfoThousands:  ",",
+        sLengthMenu:     "Afficher _MENU_ éléments",
+        sLoadingRecords: "Chargement...",
+        sProcessing:     "Traitement...",
+        sSearch:         "",
+        sZeroRecords:    "Aucun résultat trouvé",
+        oPaginate: {
+            sFirst:    "Premier",
+            sLast:     "Dernier",
+            sNext:     "Suivant",
+            sPrevious: "Précédent"
+        },
+        oAria: {
+            sSortAscending:  ": activer pour trier la colonne par ordre croissant",
+            sSortDescending: ": activer pour trier la colonne par ordre décroissant"
+        },
+        searchPlaceholder: "Chercher.."
+    },
       // Buttons with Dropdown
       buttons: [
         {
           extend: 'collection',
-          className: 'btn btn-label-secondary dropdown-toggle me-3',
-          text: '<i class="ti ti-download me-1"></i>Exporter',
+          className: 'btn btn-label-secondary dropdown-toggle',
+          text: '<i class="ti ti-download me-1"></i>Export',
           buttons: [
             {
               extend: 'print',
-              text: '<i class="ti ti-printer me-2" ></i>Imprimer',
+              text: '<i class="ti ti-printer me-2"></i>Print',
               className: 'dropdown-item',
               exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6],
-                // prevent avatar to be print
+                columns: [2, 3, 4, 5, 6, 7],
                 format: {
                   body: function (inner, coldex, rowdex) {
                     if (inner.length <= 0) return inner;
                     var el = $.parseHTML(inner);
                     var result = '';
                     $.each(el, function (index, item) {
-                      if (item.classList !== undefined && item.classList.contains('customer-name')) {
+                      if (item.classList !== undefined && item.classList.contains('order-name')) {
                         result = result + item.lastChild.firstChild.textContent;
                       } else if (item.innerText === undefined) {
                         result = result + item.textContent;
@@ -253,7 +236,7 @@ $(function () {
                 }
               },
               customize: function (win) {
-                //customize print view for dark
+                // Customize print view for dark
                 $(win.document.body)
                   .css('color', headingColor)
                   .css('border-color', borderColor)
@@ -268,18 +251,17 @@ $(function () {
             },
             {
               extend: 'csv',
-              text: '<i class="ti ti-file me-2" ></i>Csv',
+              text: '<i class="ti ti-file me-2"></i>Csv',
               className: 'dropdown-item',
               exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6],
-                // prevent avatar to be display
+                columns: [2, 3, 4, 5, 6, 7],
                 format: {
                   body: function (inner, coldex, rowdex) {
                     if (inner.length <= 0) return inner;
                     var el = $.parseHTML(inner);
                     var result = '';
                     $.each(el, function (index, item) {
-                      if (item.classList !== undefined && item.classList.contains('customer-name')) {
+                      if (item.classList !== undefined && item.classList.contains('order-name')) {
                         result = result + item.lastChild.firstChild.textContent;
                       } else if (item.innerText === undefined) {
                         result = result + item.textContent;
@@ -295,15 +277,14 @@ $(function () {
               text: '<i class="ti ti-file-export me-2"></i>Excel',
               className: 'dropdown-item',
               exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6],
-                // prevent avatar to be display
+                columns: [2, 3, 4, 5, 6, 7],
                 format: {
                   body: function (inner, coldex, rowdex) {
                     if (inner.length <= 0) return inner;
                     var el = $.parseHTML(inner);
                     var result = '';
                     $.each(el, function (index, item) {
-                      if (item.classList !== undefined && item.classList.contains('customer-name')) {
+                      if (item.classList !== undefined && item.classList.contains('order-name')) {
                         result = result + item.lastChild.firstChild.textContent;
                       } else if (item.innerText === undefined) {
                         result = result + item.textContent;
@@ -319,15 +300,14 @@ $(function () {
               text: '<i class="ti ti-file-text me-2"></i>Pdf',
               className: 'dropdown-item',
               exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6],
-                // prevent avatar to be display
+                columns: [2, 3, 4, 5, 6, 7],
                 format: {
                   body: function (inner, coldex, rowdex) {
                     if (inner.length <= 0) return inner;
                     var el = $.parseHTML(inner);
                     var result = '';
                     $.each(el, function (index, item) {
-                      if (item.classList !== undefined && item.classList.contains('customer-name')) {
+                      if (item.classList !== undefined && item.classList.contains('order-name')) {
                         result = result + item.lastChild.firstChild.textContent;
                       } else if (item.innerText === undefined) {
                         result = result + item.textContent;
@@ -340,18 +320,17 @@ $(function () {
             },
             {
               extend: 'copy',
-              text: '<i class="ti ti-copy me-2" ></i>Copier',
+              text: '<i class="ti ti-copy me-2"></i>Copy',
               className: 'dropdown-item',
               exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6],
-                // prevent avatar to be display
+                columns: [2, 3, 4, 5, 6, 7],
                 format: {
                   body: function (inner, coldex, rowdex) {
                     if (inner.length <= 0) return inner;
                     var el = $.parseHTML(inner);
                     var result = '';
                     $.each(el, function (index, item) {
-                      if (item.classList !== undefined && item.classList.contains('customer-name')) {
+                      if (item.classList !== undefined && item.classList.contains('order-name')) {
                         result = result + item.lastChild.firstChild.textContent;
                       } else if (item.innerText === undefined) {
                         result = result + item.textContent;
@@ -365,12 +344,12 @@ $(function () {
           ]
         },
         {
-          text: '<i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Ajouter Client</span>',
-          className: 'add-new btn btn-primary ms-2 ms-sm-0',
-          action: function () {
-            window.location.href = addClient;
+            text: '<i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Ajouter Commande</span>',
+            className: 'add-new btn btn-primary ms-2 ms-sm-0',
+            action: function () {
+              window.location.href = addCommande;
+            }
           }
-        }
       ],
       // For responsive popup
       responsive: {
@@ -406,14 +385,13 @@ $(function () {
         }
       }
     });
-    $('.dataTables_length').addClass('ms-n2 mt-0 mt-md-3 me-2');
+    $('.dataTables_length').addClass('mt-0 mt-md-3 ms-n2');
     $('.dt-action-buttons').addClass('pt-0');
     $('.dataTables_filter').addClass('ms-n3');
-    $('.dt-buttons').addClass('d-flex flex-wrap');
   }
 
   // Delete Record
-  $('.datatables-customers tbody','modal-dialog').on('click', '.delete-record', function () {
+  $('.datatables-order tbody').on('click', '.delete-record', function () {
     var row = $(this).closest('tr');
     Swal.fire({
       title: 'Êtes-vous sûr(e) ?',
@@ -429,7 +407,7 @@ $(function () {
       buttonsStyling: false
     }).then((result) => {
       if (result.isConfirmed) {
-        dt_customer.row(row).remove().draw();
+        dt_products.row(row).remove().draw();
         Swal.fire({
           icon: 'success',
           title: 'Supprimé !',
@@ -450,7 +428,6 @@ $(function () {
       }
     });
   });
-
   // Filter form control to default size
   // ? setTimeout used for multilingual table initialization
   setTimeout(() => {
@@ -458,56 +435,3 @@ $(function () {
     $('.dataTables_length .form-select').removeClass('form-select-sm');
   }, 300);
 });
-
-// Validation & Phone mask
-(function () {
-  const phoneMaskList = document.querySelectorAll('.phone-mask'),
-    eCommerceCustomerAddForm = document.getElementById('eCommerceCustomerAddForm');
-
-  // Phone Number
-  if (phoneMaskList) {
-    phoneMaskList.forEach(function (phoneMask) {
-      new Cleave(phoneMask, {
-        phone: true,
-        phoneRegionCode: 'US'
-      });
-    });
-  }
-  // Add New customer Form Validation
-  const fv = FormValidation.formValidation(eCommerceCustomerAddForm, {
-    fields: {
-      customerName: {
-        validators: {
-          notEmpty: {
-            message: 'Please enter fullname '
-          }
-        }
-      },
-      customerEmail: {
-        validators: {
-          notEmpty: {
-            message: 'Please enter your email'
-          },
-          emailAddress: {
-            message: 'The value is not a valid email address'
-          }
-        }
-      }
-    },
-    plugins: {
-      trigger: new FormValidation.plugins.Trigger(),
-      bootstrap5: new FormValidation.plugins.Bootstrap5({
-        // Use this for enabling/changing valid/invalid class
-        eleValidClass: '',
-        rowSelector: function (field, ele) {
-          // field is the field name & ele is the field element
-          return '.mb-3';
-        }
-      }),
-      submitButton: new FormValidation.plugins.SubmitButton(),
-      // Submit the form when all fields are valid
-      // defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
-      autoFocus: new FormValidation.plugins.AutoFocus()
-    }
-  });
-})();

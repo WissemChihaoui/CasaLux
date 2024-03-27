@@ -108,7 +108,7 @@ $(function () {
           render: function (data, type, full, meta) {
             return (
               '<div class="d-flex align-items-center">' +
-              '<a href="javascript:;" class="text-body" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEditUser"><i class="ti ti-edit ti-sm me-2"></i></a>' +
+              '<a href="edit.html?id'+full["id"]+'" class="text-body" ><i class="ti ti-edit ti-sm me-2"></i></a>' +
               '<a href="javascript:;" class="text-body delete-record"><i class="ti ti-trash ti-sm mx-2"></i></a>'
             );
           }

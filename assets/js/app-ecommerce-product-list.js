@@ -202,7 +202,7 @@ $(function () {
           render: function (data, type, full, meta) {
             return (
               '<div class="d-inline-block text-nowrap">' +
-              '<button class="btn btn-sm btn-icon"><i class="ti ti-edit"></i></button>' +
+              '<a href="edit.html?id='+full["id"]+'" class="btn btn-sm btn-icon"><i class="ti ti-edit"></i></a>' +
               '<button class="btn btn-sm btn-icon delete-record"><i class="ti ti-trash"></i></button>' +              
               '</div>'
             );
@@ -495,10 +495,46 @@ $(function () {
     $('.dt-buttons').addClass('d-flex flex-wrap');
   }
 
-  // Delete Record
-  $('.datatables-products tbody').on('click', '.delete-record', function () {
-    dt_products.row($(this).parents('tr')).remove().draw();
+// Delete Record
+$('.datatables-products tbody').on('click', '.delete-record', function () {
+  var row = $(this).closest('tr');
+  Swal.fire({
+    title: 'Êtes-vous sûr(e) ?',
+    text: "Vous ne pourrez pas revenir en arrière !",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Oui, supprimez-le !',
+    cancelButtonText: 'Non, annulez !',
+    customClass: {
+      confirmButton: 'btn btn-primary me-3',
+      cancelButton: 'btn btn-label-secondary'
+    },
+    buttonsStyling: false
+  }).then((result) => {
+    if (result.isConfirmed) {
+      dt_products.row(row).remove().draw();
+      Swal.fire({
+        icon: 'success',
+        title: 'Supprimé !',
+        text: 'Votre fichier a été supprimé.',
+        customClass: {
+          confirmButton: 'btn btn-success'
+        }
+      });
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Annulé',
+        text: 'Votre fichier imaginaire est en sécurité :)',
+        customClass: {
+          confirmButton: 'btn btn-success'
+        }
+      });
+    }
   });
+});
+
+
 
   // Filter form control to default size
   // ? setTimeout used for multilingual table initialization
