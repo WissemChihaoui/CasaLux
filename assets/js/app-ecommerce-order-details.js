@@ -5,6 +5,24 @@
 'use strict';
 
 // Datatable (jquery)
+const selectElement = document.getElementById('statusCommande');
+const btnViewFacture = document.getElementById('btn-view-facture');
+const btnViewLivraison = document.getElementById('btn-view-livraison');
+function toggleButtonsVisibility() {
+  const selectedValue = selectElement.value;
+
+  if (selectedValue === 'paid') {
+    btnViewFacture.classList.remove('d-none');
+    btnViewLivraison.classList.remove('d-none');
+  } else if (selectedValue === 'unpaid') {
+    btnViewFacture.classList.add('d-none');
+    btnViewLivraison.classList.add('d-none');
+  }
+}
+window.addEventListener('load', toggleButtonsVisibility);
+
+    // Add event listener for select change
+  selectElement.addEventListener('change', toggleButtonsVisibility);
 
 $(function () {
   // Variable declaration for table

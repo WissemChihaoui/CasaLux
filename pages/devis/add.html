@@ -394,10 +394,11 @@
                   </div>
                   <div class="d-flex align-content-center flex-wrap gap-3">
                     <div class="d-flex gap-3">
-                      <button class="btn btn-label-secondary">Abandonner</button>
+                      <button class="btn btn-label-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="tooltip-secondary" data-bs-original-title="Annuler l'enregistrement">Abandonner</button>
                     </div>
                     <div class="d-flex gap-3">
-                      <button class="btn btn-label-primary">Voir</button>
+                      <!-- should save the form before preview -->
+                      <button disabled class="btn btn-label-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="tooltip-primary" data-bs-original-title="Voir document devis">Voir</button>
                     </div>
                     <button type="submit" class="btn btn-primary">Enregistrer</button>
                   </div>
@@ -590,7 +591,129 @@
                        
                       
                 </div>
-
+                <div class="modal fade" id="addClient" tabindex="-1" aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel2">Ajouter Client</h5>
+                      <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="col">
+                          
+                          <div class="card mb-3">
+                            <div class="card-header pt-2">
+                              <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                                <li class="nav-item">
+                                  <button
+                                    class="nav-link active"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#form-tabs-personal"
+                                    role="tab"
+                                    aria-selected="true">
+                                    Société
+                                  </button>
+                                </li>
+                                <li class="nav-item">
+                                  <button
+                                    class="nav-link"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#form-tabs-account"
+                                    role="tab"
+                                    aria-selected="false">
+                                    Particulier
+                                  </button>
+                                </li>
+                              </ul>
+                            </div>
+        
+                            <div class="tab-content">
+                              <div class="tab-pane fade active show" id="form-tabs-personal" role="tabpanel">
+                                <form>
+                                  <div class="row g-3">
+                                    <div class="col-md-6">
+                                      <label class="form-label" for="formtabs-first-name">Nom Société</label>
+                                      <input type="text" id="formtabs-first-name" class="form-control" placeholder="John" />
+                                    </div>
+                                    <div class="col-md-6">
+                                      <label class="form-label" for="formtabs-last-name">Nom Responsable</label>
+                                      <input type="text" id="formtabs-last-name" class="form-control" placeholder="Doe" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="formtabs-email">Email</label>
+                                        <div class="input-group input-group-merge">
+                                          <input
+                                            type="text"
+                                            id="formtabs-email"
+                                            class="form-control"
+                                            placeholder="john.doe"
+                                            aria-label="john.doe"
+                                            aria-describedby="formtabs-email2" />
+                                          <span class="input-group-text" id="formtabs-email2">@example.com</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <label class="form-label" for="formtabs-phone2">Num Téléphone</label>
+                                      <input
+                                        type="text"
+                                        id="formtabs-phone2"
+                                        class="form-control phone-mask"
+                                        placeholder="658 799 8941"
+                                        aria-label="658 799 8941" />
+                                    </div>
+                                    <div class="col">
+                                      <label class="form-label" for="formtabs-matricule">Num Matricule Fiscale</label>
+                                      <input
+                                        type="text"
+                                        id="formtabs-matricule"
+                                        class="form-control phone-mask"
+                                        placeholder="658 799 8941"
+                                        aria-label="658 799 8941" />
+                                    </div>
+                                  </div>
+                                  <div class="pt-4">
+                                    <button type="submit" class="btn btn-primary me-sm-3 me-1">Enregistrer</button>
+                                    <button type="reset" class="btn btn-label-secondary" data-bs-dismiss="modal">Annuler</button>
+                                  </div>
+                                </form>
+                              </div>
+                              <div class="tab-pane fade" id="form-tabs-account" role="tabpanel">
+                                <form>
+                                  <div class="row g-3">
+                                    <div class="col-md-6">
+                                      <label class="form-label" for="formtabs-username">Nom</label>
+                                      <input type="text" id="formtabs-username" class="form-control" placeholder="john doe" value="Passagers"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="formtabs-phone">Num téléphone</label>
+                                        <input
+                                          type="text"
+                                          id="formtabs-phone"
+                                          class="form-control phone-mask"
+                                          placeholder="658 799 8941"
+                                          aria-label="658 799 8941" />
+                                      </div>
+                                    
+                                  </div>
+                                  <div class="pt-4">
+                                    <button type="submit" class="btn btn-primary me-sm-3 me-1">Enregistrer</button>
+                                    <button type="reset" class="btn btn-label-secondary" data-bs-dismiss="modal">Annuler</button>
+                                  </div>
+                                </form>
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                  </div>
+                  </div>
+              </div>
               </div>
               </div>
               <!--/ Layout Demo -->

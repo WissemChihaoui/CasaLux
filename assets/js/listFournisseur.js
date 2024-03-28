@@ -430,7 +430,7 @@ $('.datatables-fournisseurs').on('click', '.view-interlocutors', function() {
                 <a href="javascript:;" class="btn-sm" data-bs-toggle="modal" data-bs-target="#editInter">
                     <i class="ti ti-edit ti-sm"></i>
                 </a>
-                <a href="javascript:;" class="btn-sm" data-bs-toggle="modal" data-bs-target="#deleteInter">
+                <a href="javascript:;" class="btn-sm delete-inter">
                     <i class="ti ti-trash ti-sm "></i>
                 </a>
               </td>
@@ -443,19 +443,75 @@ $('.datatables-fournisseurs').on('click', '.view-interlocutors', function() {
   // Display modal with interlocutors' data
   $('#viewInterlocuteurModal .modal-title').text('Interlocuteur Pour ' + companyName);
   $('#viewInterlocuteurModal .modal-body').html(modalContent);
+  const deleteInters = document.querySelectorAll('.delete-inter');
+  if (deleteInters) {
+    deleteInters.forEach(deleteInter => {
+      deleteInter.addEventListener('click', function () {
+        Swal.fire({
+          title: 'Êtes-vous sûr?',
+          text: "Vous ne pourrez pas revenir en arrière!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Oui, supprimez-le!',
+          customClass: {
+            confirmButton: 'btn btn-primary me-3',
+            cancelButton: 'btn btn-label-secondary'
+          },
+          buttonsStyling: false
+        }).then(function (result) {
+          if (result.value) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Supprimé!',
+              text: 'Votre fichier a été supprimé.',
+              customClass: {
+                confirmButton: 'btn btn-success'
+              }
+            });
+          }
+        });
+      });
+    });
+  }
 });
+
+
+
 $(document).on('click', '.delete-record', function () {
     var row = $(this).closest('tr');
-    var title = $(this).data('title');
-    
-    // Update the modal message dynamically based on the row's title
-    $('#deleteInter .modal-body').text("Êtes-vous sûr de vouloir supprimer ce produit?");
-    
-    $('#deleteInter').modal('show');
-
-    $('#confirmDeleteInter').off('click').on('click', function () {
-        dt_user_table.row(row).remove().draw();
-        $('#deleteInter').modal('hide');
+    Swal.fire({
+      title: 'Êtes-vous sûr(e) ?',
+      text: "Vous ne pourrez pas revenir en arrière !",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Oui, supprimez-le !',
+      cancelButtonText: 'Non, annulez !',
+      customClass: {
+        confirmButton: 'btn btn-primary me-3',
+        cancelButton: 'btn btn-label-secondary'
+      },
+      buttonsStyling: false
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dt_user.row(row).remove().draw();
+        Swal.fire({
+          icon: 'success',
+          title: 'Supprimé !',
+          text: 'Votre fichier a été supprimé.',
+          customClass: {
+            confirmButton: 'btn btn-success'
+          }
+        });
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Annulé',
+          text: 'Votre fichier imaginaire est en sécurité :)',
+          customClass: {
+            confirmButton: 'btn btn-success'
+          }
+        });
+      }
     });
   });
  
@@ -470,104 +526,5 @@ $(document).on('click', '.delete-record', function () {
 
 // Validation & Phone mask
 (function () {
-  const phoneMaskList = document.querySelectorAll('.phone-mask'),
-    addNewUserForm = document.getElementById('addNewUserForm');
-
-  // Phone Number
-  if (phoneMaskList) {
-    phoneMaskList.forEach(function (phoneMask) {
-      new Cleave(phoneMask, {
-        phone: true,
-        phoneRegionCode: 'FR'
-      });
-    });
-  }
-  // Add New User Form Validation
-  const fv = FormValidation.formValidation(addNewUserForm, {
-    fields: {
-      userFullname: {
-        validators: {
-          notEmpty: {
-            message: 'Please enter fullname '
-          }
-        }
-      },
-      userEmail: {
-        validators: {
-          notEmpty: {
-            message: 'Please enter your email'
-          },
-          emailAddress: {
-            message: 'The value is not a valid email address'
-          }
-        }
-      }
-    },
-    plugins: {
-      trigger: new FormValidation.plugins.Trigger(),
-      bootstrap5: new FormValidation.plugins.Bootstrap5({
-        // Use this for enabling/changing valid/invalid class
-        eleValidClass: '',
-        rowSelector: function (field, ele) {
-          // field is the field name & ele is the field element
-          return '.mb-3';
-        }
-      }),
-      submitButton: new FormValidation.plugins.SubmitButton(),
-      // Submit the form when all fields are valid
-      // defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
-      autoFocus: new FormValidation.plugins.AutoFocus()
-    }
-  });
-})();
-$(function () {
-  var maxlengthInput = $('.bootstrap-maxlength-example'),
-    formRepeater = $('.form-repeater');
-
-  // Bootstrap Max Length
-  // --------------------------------------------------------------------
-  if (maxlengthInput.length) {
-    maxlengthInput.each(function () {
-      $(this).maxlength({
-        warningClass: 'label label-success bg-success text-white',
-        limitReachedClass: 'label label-danger',
-        separator: ' hors de ',
-        preText: 'Vous avez saisi ',
-        postText: ' caractères disponibles.',
-        validate: true,
-        threshold: +this.getAttribute('maxlength')
-      });
-    });
-  }
-
  
-
-  if (formRepeater.length) {
-    var row = 2;
-    var col = 1;
-    formRepeater.on('submit', function (e) {
-      e.preventDefault();
-    });
-    formRepeater.repeater({
-      show: function () {
-        var fromControl = $(this).find('.form-control, .form-select');
-        var formLabel = $(this).find('.form-label');
-
-        fromControl.each(function (i) {
-          var id = 'form-repeater-' + row + '-' + col;
-          $(fromControl[i]).attr('id', id);
-          $(formLabel[i]).attr('for', id);
-          col++;
-        });
-
-        row++;
-
-        $(this).slideDown();
-      },
-      hide: function (e) {
-        
-        $(this).slideUp(e);
-      }
-    });
-  }
 });

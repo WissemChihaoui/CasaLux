@@ -69,7 +69,7 @@ $(function () {
         { data: '' },
         { data: 'id' },
         { data: 'categories' },
-        { data: 'description'},
+        { data: 'category_detail'},
         { data: 'total_products' },
         { data: '' }
       ],
@@ -118,7 +118,7 @@ $(function () {
           orderable: false,
           searchable: false,
           render: function(data, type, full, meta) {
-            var $desc = full['description'];
+            var $desc = full['category_detail'];
             return '<p class="text-muted mb-0 d-none d-sm-block">' + $desc + '</p>';
           }
         },

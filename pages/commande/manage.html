@@ -445,15 +445,14 @@
                       <div class="card-body">
                         <label for="statusCommande" class="form-label">Statut</label>
                         <select class="select form-select mb-2" id="statusCommande">
-                          <option value="En Attente">En Attente</option>
-                          <option value="Actif">Actif</option>
+                          <option value="unpaid">Non Payé</option>
+                          <option value="paid">Payé</option>
                         </select>
-                        <a href="../bon-cadeau/bon-cadeau-view.html" target="_blank" class="btn btn-label-primary d-grid w-100 mb-2">Voir bon cadeau</a>
-                        <a href="../docs/facture.html" aria-disabled="true"  class="btn btn-label-primary d-grid w-100 mb-2">
+                        <a href="/pages/factures/view.html" id="btn-view-facture" class="btn btn-label-primary d-grid w-100 mb-2">
                           Voir facture
                         </a>
-                        <a href="../docs/bon-commande.html"  class="btn btn-label-primary d-grid w-100 mb-2">
-                          Voir bon commande
+                        <a href="/pages/bon-livraison/view.html" id="btn-view-livraison" class="btn btn-label-primary d-grid w-100 mb-2">
+                          Voir bon livraison
                         </a>
                       </div>
                     </div>
@@ -526,7 +525,7 @@
     <script src="/assets/vendor/js/menu.js"></script>
 
     <!-- endbuild -->
-
+    
     <!-- Vendors JS -->
     <script src="/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
 

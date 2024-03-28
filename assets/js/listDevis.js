@@ -100,7 +100,7 @@ $(function () {
           responsivePriority: 1,
           render: function (data, type, full, meta) {
             var $name = full['customer'],
-              $email = full['email'];
+              $phone = full['phone'];
               
            
             // Creates full output for row
@@ -112,7 +112,7 @@ $(function () {
               $name +
               '</a></h6>' +
               '<small class="text-muted">' +
-              $email +
+              $phone +
               '</small>' +
               '</div>' +
               '</div>';
@@ -140,14 +140,19 @@ $(function () {
           orderable: false,
           render: function (data, type, full, meta) {
             return (
-              '<div class="d-flex justify-content-sm-center align-items-sm-center">' +
+              '<div class="d-inline-block text-nowrap">' +
+              '<button class="btn waves-effect waves-light btn-sm btn-icon btn-label-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-success" data-bs-original-title="Confirmer Devis"><i class="ti ti-check"></i></button>' +              
+              '<a href="edit.html?id='+full['id']+'" class="btn btn-sm btn-icon"><i class="ti ti-edit"></i></a>' +
+              
+             
               '<button class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>' +
               '<div class="dropdown-menu dropdown-menu-end m-0">' +
               '<a href="voir.html?id='+full['order']+'" class="dropdown-item">Voir</a>' +
-              '<a href="javascript:0;" class="dropdown-item delete-record">' +
+              '<a href="javascript:0;" class="dropdown-item btn-label-danger delete-record">' +
               'Supprimer' +
               '</a>' +
               '</div>' +
+            
               '</div>'
             );
           }
