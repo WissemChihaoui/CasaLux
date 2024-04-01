@@ -418,12 +418,8 @@
     totalRevenueChartOptions = {
       series: [
         {
-          name: 'Earning',
-          data: [270, 210, 180, 200, 250, 280, 250, 270, 150]
-        },
-        {
-          name: 'Expense',
-          data: [-140, -160, -180, -150, -100, -60, -80, -100, -180]
+          name: 'Nouveau Clients',
+          data: [8, 7, 5, 20, 25, 16, 35, 40, 45]
         }
       ],
       chart: {
@@ -434,7 +430,7 @@
         toolbar: { show: false }
       },
       tooltip: {
-        enabled: false
+        enabled: true
       },
       plotOptions: {
         bar: {
@@ -445,7 +441,7 @@
           endingShape: 'rounded'
         }
       },
-      colors: [config.colors.primary, config.colors.warning],
+      colors: ['#CCA351', '#936408'],
       dataLabels: {
         enabled: false
       },
@@ -483,7 +479,7 @@
         }
       },
       xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+        categories: ['Janv', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc'],
         labels: {
           style: {
             fontSize: '13px',
@@ -507,8 +503,6 @@
             fontFamily: 'Public Sans'
           }
         },
-        min: -200,
-        max: 300,
         tickAmount: 5
       },
       responsive: [
@@ -674,10 +668,10 @@
       legend: {
         show: false
       },
-      colors: [borderColor, config.colors.primary],
+      colors: ['#936408', "#CCA351"],
       grid: {
         show: false,
-        borderColor: borderColor,
+        borderColor: '#936408',
         padding: {
           top: -30,
           bottom: -15,
