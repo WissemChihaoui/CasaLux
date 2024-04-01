@@ -26,14 +26,51 @@ $(function () {
       2: { title: 'Publier', class: 'bg-label-success' },
       3: { title: 'Inactif', class: 'bg-label-danger' }
     },
-    categoryObj = {
-      0: { title: 'Household' },
-      1: { title: 'Office' },
-      2: { title: 'Electronics' },
-      3: { title: 'Shoes' },
-      4: { title: 'Accessories' },
-      5: { title: 'Game' }
+    categories_section = {
+      1: { 
+        title: 'Cuisine',
+        categoryParent: {
+          1: { 
+            title: 'Évier',
+            categoryObj:{
+
+            }
+          },
+          2: { 
+            title: 'Hotte Aspirante',
+            categoryObj:{
+              1: { title: 'Hotte Murale' }
+            }
+          }
+        }
+       },
+      2: { 
+        title: 'Salle de bain',
+        categoryParent: {
+          1:{
+            title: 'Baignoire',
+            categoryObj:{
+              1: { title: 'Baignoire Angle' },
+              2: { title: 'Accessoire pour baignoire' }
+            }
+          }
+        }
+      },
+      3: { 
+        title: 'Terasse & Jardin',
+        categoryParent: {
+          1:{
+            title: 'Meuble en aluminium',
+            categoryObj:{
+              1: { title: 'Chaise' },
+              2: { title: 'Chaise longue' },
+              3: { title: 'Table' }
+            }
+          }
+        }
+      },
     },
+    
     stockObj = {
       0: { title: 'Out_of_Stock' },
       1: { title: 'In_Stock' }
@@ -102,27 +139,28 @@ $(function () {
           targets: 4,
           responsivePriority: 5,
           render: function (data, type, full, meta) {
-            var $category = categoryObj[full['category']].title;
-            var categoryBadgeObj = {
-              Household:
-                '<span class="avatar-sm rounded-circle d-flex justify-content-center align-items-center bg-label-warning me-2 p-3"><i class="ti ti-home-2 ti-xs"></i></span>',
-              Office:
-                '<span class="avatar-sm rounded-circle d-flex justify-content-center align-items-center bg-label-info me-2 p-3"><i class="ti ti-briefcase ti-xs"></i></span>',
-              Electronics:
-                '<span class="avatar-sm rounded-circle d-flex justify-content-center align-items-center bg-label-danger me-2 p-3"><i class="ti ti-device-mobile ti-xs"></i></span>',
-              Shoes:
-                '<span class="avatar-sm rounded-circle d-flex justify-content-center align-items-center bg-label-success me-2"><i class="ti ti-shoe ti-xs"></i></span>',
-              Accessories:
-                '<span class="avatar-sm rounded-circle d-flex justify-content-center align-items-center bg-label-secondary me-2"><i class="ti ti-device-watch ti-xs"></i></span>',
-              Game: '<span class="avatar-sm rounded-circle d-flex justify-content-center align-items-center bg-label-primary me-2"><i class="ti ti-device-gamepad-2 ti-xs"></i></span>'
-            };
-            return (
-              "<span class='text-truncate d-flex align-items-center'>" +
-              categoryBadgeObj[$category] +
-              $category +
-              '</span>'
-            );
-          }
+            var categoryHtml = '';
+            var categories = full['category'];
+            
+            for (var i = 0; i < categories.length; i++) {
+                var category = categories[i];
+                var section = category['section'];
+                var parent = category['parent'];
+                var child = category['child'];
+        
+                if (categories_section[section] && categories_section[section].categoryParent[parent] && categories_section[section].categoryParent[parent].categoryObj[child]) {
+                    var sectionTitle = categories_section[section].title;
+                    var parentTitle = categories_section[section].categoryParent[parent].title;
+                    var childTitle = categories_section[section].categoryParent[parent].categoryObj[child].title;
+        
+                    // categoryHtml += sectionTitle + ' > ' + parentTitle + ' > ' + childTitle + '<br>';
+                    categoryHtml += childTitle + ' <br><small class="text-muted">('+sectionTitle+'/'+parentTitle+')</small>'+ '<br>';
+                }
+            }
+        
+            return categoryHtml;
+        }
+        
         },
         {
           // Stock

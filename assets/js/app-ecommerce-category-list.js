@@ -69,7 +69,8 @@ $(function () {
         { data: '' },
         { data: 'id' },
         { data: 'categories' },
-        { data: 'category_detail'},
+        { data: 'category_parent'},
+        { data: 'category_section'},
         { data: 'total_products' },
         { data: '' }
       ],
@@ -115,17 +116,27 @@ $(function () {
         {
           targets:3,
           responsivePriority:4,
-          orderable: false,
+          orderable: true,
           searchable: false,
           render: function(data, type, full, meta) {
-            var $desc = full['category_detail'];
+            var $desc = full['category_parent'];
+            return '<p class="text-muted mb-0 d-none d-sm-block">' + $desc + '</p>';
+          }
+        },
+        {
+          targets:4,
+          responsivePriority:5,
+          orderable: true,
+          searchable: false,
+          render: function(data, type, full, meta) {
+            var $desc = full['category_section'];
             return '<p class="text-muted mb-0 d-none d-sm-block">' + $desc + '</p>';
           }
         },
         {
           // Total products
-          targets: 4,
-          responsivePriority: 3,
+          targets: 5,
+          responsivePriority: 6,
           render: function (data, type, full, meta) {
             var $total_products = full['total_products'];
             return '<div class="text-sm-end">' + $total_products + '</div>';

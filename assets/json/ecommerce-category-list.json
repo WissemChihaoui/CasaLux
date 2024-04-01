@@ -3,114 +3,72 @@
     {
       "id": 1,
       "cat_image": "baignoire.jpg",
-      "categories": "La baignoire",
+      "categories": "Baignoire Angle",
       "category_detail": "La baignoire est un élément essentiel de toute salle de bain.",
       "total_earnings": "$99129",
+      "category_parent": "Baignoire",
+      "category_section": "Salle de bain",
       "total_products": 1947
     },
     {
       "id": 2,
-      "cat_image": "bac_douche.jpg",
-      "categories": "Le bac de douche",
-      "category_detail": "Le bac de douche est une solution pratique pour les petites salles de bains.",
-      "total_earnings": "$2512.50",
-      "total_products": 7283
+      "cat_image": "cuisine.jpg",
+      "categories": "Cuisine",
+      "category_detail": "",
+      "total_earnings": "$99129",
+      "category_parent": "Cuisine",
+      "category_section": "Cuisine",
+      "total_products": 1947
     },
     {
       "id": 3,
-      "cat_image": "lavabo.jpg",
-      "categories": "Le lavabo",
-      "category_detail": "Le lavabo est un élément central de toute salle de bain.",
-      "total_earnings": "$1612.34",
-      "total_products": 2954
+      "cat_image": "hotte-aspirant.jpg",
+      "categories": "Hotte Murale",
+      "category_detail": "",
+      "total_earnings": "$99129",
+      "category_parent": "Hotte Aspirant",
+      "category_section": "Cuisine",
+      "total_products": 1947
     },
     {
       "id": 4,
-      "cat_image": "wc.jpg",
-      "categories": "Le WC",
-      "category_detail": "Le WC est un élément indispensable de toute installation sanitaire.",
-      "total_earnings": "$3612.98",
-      "total_products": 4940
+      "cat_image": "accessoire-baignoire.jpg",
+      "categories": "Accessoire Baignoire",
+      "category_detail": "",
+      "total_earnings": "$99129",
+      "category_parent": "Baignoire",
+      "category_section": "Salle de bain",
+      "total_products": 1947
     },
     {
       "id": 5,
-      "cat_image": "bidet.jpg",
-      "categories": "Le bidet",
-      "category_detail": "Le bidet est un accessoire complémentaire pour l'hygiène intime.",
-      "total_earnings": "$79129",
-      "total_products": 4665
+      "cat_image": "chaise.jpg",
+      "categories": "Chaise",
+      "category_detail": "",
+      "total_earnings": "$99129",
+      "category_parent": "Meuble en alminium",
+      "category_section": "Terrasse & Jardin", 
+      "total_products": 1947
     },
     {
       "id": 6,
-      "cat_image": "urinoir.jpg",
-      "categories": "L'urinoir",
-      "category_detail": "L'urinoir est une solution pratique pour les lieux publics.",
-      "total_earnings": "$29129",
-      "total_products": 5764
+      "cat_image": "chaise-long.jpg",
+      "categories": "Chaise Long",
+      "category_detail": "",
+      "total_earnings": "$99129",
+      "category_parent": "Meuble en alminium",
+      "category_section": "Terrasse & Jardin", 
+      "total_products": 1947
     },
     {
       "id": 7,
-      "cat_image": "evier.jpg",
-      "categories": "L'évier de cuisine",
-      "category_detail": "L'évier de cuisine est un élément essentiel de toute cuisine moderne.",
-      "total_earnings": "$19120.45",
-      "total_products": 9184
-    },
-    {
-      "id": 8,
-      "cat_image": "robinet.jpg",
-      "categories": "Le robinet",
-      "category_detail": "Le robinet est un élément indispensable pour l'approvisionnement en eau.",
-      "total_earnings": "$7912.99",
-      "total_products": 4186
-    },
-    {
-      "id": 9,
-      "cat_image": "miroir.jpg",
-      "categories": "Le miroir",
-      "category_detail": "Le miroir est un accessoire indispensable dans une salle de bain.",
-      "total_earnings": "$7912.99",
-      "total_products": 4186
-    },
-    {
-      "id": 10,
-      "cat_image": "porte_savon.jpg",
-      "categories": "Le porte-savon",
-      "category_detail": "Le porte-savon est un accessoire pratique pour ranger le savon.",
-      "total_earnings": "$7912.99",
-      "total_products": 4186
-    },
-    {
-      "id": 11,
-      "cat_image": "distributeur_savon.jpg",
-      "categories": "Le distributeur de savon",
-      "category_detail": "Le distributeur de savon est un accessoire pratique pour l'hygiène des mains.",
-      "total_earnings": "$7912.99",
-      "total_products": 4186
-    },
-    {
-      "id": 12,
-      "cat_image": "etagere.jpg",
-      "categories": "L'étagère de salle de bain",
-      "category_detail": "L'étagère de salle de bain est un accessoire pratique pour ranger les produits de toilette.",
-      "total_earnings": "$7912.99",
-      "total_products": 4186
-    },
-    {
-      "id": 13,
-      "cat_image": "tabouret.jpg",
-      "categories": "Le tabouret",
-      "category_detail": "Le tabouret de salle de bain est un accessoire utile pour s'asseoir.",
-      "total_earnings": "$7912.99",
-      "total_products": 4186
-    },
-    {
-      "id": 14,
-      "cat_image": "balai.jpg",
-      "categories": "Le balai de toilette",
-      "category_detail": "Le balai de toilette est un accessoire essentiel pour maintenir la propreté.",
-      "total_earnings": "$7912.99",
-      "total_products": 4186
+      "cat_image": "table.jpg",
+      "categories": "Table",
+      "category_detail": "",
+      "total_earnings": "$99129",
+      "category_parent": "Meuble en alminium",
+      "category_section": "Terrasse & Jardin", 
+      "total_products": 1947
     }
   ]
 }

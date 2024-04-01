@@ -123,7 +123,7 @@ $(function () {
           orderable: false,
           render: function (data, type, full, meta) {
             var $price = full['price'];
-            var $output = '<span>$' + $price + '</span>';
+            var $output = '<span>' + $price + ' DT</span>';
             return $output;
           }
         },
@@ -145,7 +145,7 @@ $(function () {
           orderable: false,
           render: function (data, type, full, meta) {
             var $total = full['qty'] * full['price'];
-            var $output = '<h6 class="mb-0">$' + $total + '</h6>';
+            var $output = '<h6 class="mb-0">' + $total + 'DT</h6>';
             return $output;
           }
         }
