@@ -101,11 +101,7 @@
                     <div>Liste Des Produits</div>
                   </a>
                 </li>
-                <li class="menu-item">
-                  <a href="/pages/categories/index.html" class="menu-link">
-                    <div>Catégories</div>
-                  </a>
-                </li>
+                
               </ul>
             </li>
 
@@ -227,15 +223,8 @@
                           <a href="/pages/produits/add.html" class="stretched-link">Produit</a>
                           <small class="text-muted mb-0">Ajouter Produit</small>
                         </div>
-                        <div class="dropdown-shortcuts-item col active">
-                          <span class="dropdown-shortcuts-icon rounded-circle mb-2">
-                            <i class="ti ti-category fs-4"></i>
-                          </span>
-                          <a href="/pages/categories/add.html" class="stretched-link">Catégorie</a>
-                          <small class="text-muted mb-0">Ajouter Catégorie</small>
-                        </div>
-                      </div>
-                      <div class="row row-bordered overflow-visible g-0">
+                        
+                      
                         <div class="dropdown-shortcuts-item col">
                           <span class="dropdown-shortcuts-icon rounded-circle mb-2">
                             <i class="ti ti-users fs-4"></i>
@@ -475,123 +464,100 @@
                       </div>
                       <!-- /Second column -->
     
-                      <!-- Second column -->
-                      <div class="col-12 col-lg-4">
-                        <!-- Pricing Card -->
-                        <div class="card mb-4">
-                          <div class="card-header">
-                            <h5 class="card-title mb-0">Tarification</h5>
+                     <!-- Second column -->
+                     <div class="col-12 col-lg-4">
+                      <!-- Pricing Card -->
+                      <div class="card mb-4">
+                        <div class="card-header">
+                          <h5 class="card-title mb-0">Tarification</h5>
+                        </div>
+                        <div class="card-body">
+                          <div class="mb-3 col ecommerce-select2-dropdown">
+                            <label class="form-label mb-1" for="tva"> TVA </label>
+                            <select id="tva" class="selectpicker w-100" data-style="btn-default" aria-placeholder="Choisir TVA">
+                              <option value="">Choisir TVA</option>
+                              <option value="7">7 %</option>
+                              <option value="20">20 %</option>
+                              <option value="25">25 %</option>
+                            </select>
                           </div>
-                          <div class="card-body">
-                            <div class="mb-3 col ecommerce-select2-dropdown">
-                              <label class="form-label mb-1" for="tva"> TVA </label>
-                              <select id="tva" class="selectpicker w-100" data-style="btn-default" aria-placeholder="Choisir TVA">
-                                <option value="">Choisir TVA</option>
-                                <option value="7">7 %</option>
-                                <option value="20">20 %</option>
-                                <option value="25">25 %</option>
-                              </select>
-                            </div>
-                            <!-- Base Price -->
-                            <div class="mb-3">
-                              <label class="form-label" for="ecommerce-product-price">Prix de base HT</label>
-                              <input
-                                type="number"
-                                class="form-control"
-                                id="ecommerce-product-price"
-                                placeholder="Prix"
-                                name="productPrice"
-                                aria-label="Product price" />
-                            </div>
-                            <!-- Discounted Price -->
-                            <div class="mb-3">
-                              <label class="form-label" for="ecommerce-product-discount-price">Prix de base TTC</label>
-                              <input
-                                type="number"
-                                disabled
-                                class="form-control"
-                                id="ecommerce-product-discount-price"
-                                placeholder="TTC"
-                                name="productDiscountedPrice"
-                                aria-label="Product discounted price" />
-                            </div>
-                            <div class="mb-3">
-                              <label class="form-label" for="ecommerce-product-discount-price">Prix promo</label>
-                              <input
-                                type="number"
-                                class="form-control"
-                                id="prix-promo"
-                                placeholder="Prix Promo"
-                                name="productDiscountedPrice"
-                                aria-label="Product discounted price" />
-                            </div>
-                           
-                            <!-- Instock switch -->
-                            <div class="d-flex justify-content-between align-items-center border-top pt-3">
-                              <h6 class="mb-0">En stock</h6>
-                              <div class="w-25 d-flex justify-content-end">
-                                <label class="switch switch-primary switch-sm me-4 pe-2">
-                                  <input type="checkbox" class="switch-input" checked="" />
-                                  <span class="switch-toggle-slider">
-                                    <span class="switch-on">
-                                      <span class="switch-off"></span>
-                                    </span>
+                          <!-- Base Price -->
+                          <div class="mb-3">
+                            <label class="form-label" for="ecommerce-product-price">Prix de base HT</label>
+                            <input
+                              type="number"
+                              class="form-control"
+                              id="ecommerce-product-price"
+                              placeholder="Prix"
+                              name="productPrice"
+                              aria-label="Product price" />
+                          </div>
+                          <!-- Discounted Price -->
+                          <div class="mb-3">
+                            <label class="form-label" for="ecommerce-product-discount-price">Prix de base TTC</label>
+                            <input
+                              type="number"
+                              disabled
+                              class="form-control"
+                              id="ecommerce-product-discount-price"
+                              placeholder="TTC"
+                              name="productDiscountedPrice"
+                              aria-label="Product discounted price" />
+                          </div>
+                          <div class="mb-3">
+                            <label class="form-label" for="ecommerce-product-discount-price">Prix promo</label>
+                            <input
+                              type="number"
+                              class="form-control"
+                              id="prix-promo"
+                              placeholder="Prix Promo"
+                              name="productDiscountedPrice"
+                              aria-label="Product discounted price" />
+                          </div>
+                         
+                          <!-- Instock switch -->
+                          <div class="d-flex justify-content-between align-items-center border-top border-bottom py-3">
+                            <h6 class="mb-0">En stock</h6>
+                            <div class="w-25 d-flex justify-content-end">
+                              <label class="switch switch-primary switch-sm me-4 pe-2">
+                                <input type="checkbox" class="switch-input" checked="" />
+                                <span class="switch-toggle-slider">
+                                  <span class="switch-on">
+                                    <span class="switch-off"></span>
                                   </span>
-                                </label>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- /Pricing Card -->
-                        <!-- Organize Card -->
-                        <div class="card mb-4">
-                          <div class="card-header">
-                            <h5 class="card-title mb-0">Organisateur</h5>
-                          </div>
-                          <div class="card-body">
-                            <!-- Vendor -->
-                            <div class="mb-3 col ecommerce-select2-dropdown">
-                              <label class="form-label mb-1" for="vendor">Fournisseur </label>
-                              <select id="vendor" class="select2 form-select" data-placeholder="Choisir Fournisseur">
-                                <option value="">Choisir Fournisseur</option>
-                                <option value="Jon Doe">Jon Doe</option>
-                                <option value="Jane Doe">Jane Doe</option>
-                               
-                              </select>
-                            </div>
-                            <!-- Category -->
-                            <div class="mb-3 col ecommerce-select2-dropdown">
-                              <label
-                                class="form-label mb-1 d-flex justify-content-between align-items-center"
-                                for="category-org">
-                                <span>Catégorie</span><a href="#" data-bs-toggle="modal" data-bs-target="#modalCategory" class="fw-medium">Ajouter Catégorie</a>
+                                </span>
                               </label>
-                              <select id="category-org" class="select2 form-select" data-placeholder="Choisir Catégorie" multiple>
-                                <option value="">Choisir Catégorie</option>
-                                <option value="Ménage">Ménage</option>
-                                <option value="Bureau">Bureau</option>
-                                <option value="Électronique">Électronique</option>
-                                <option value="Chaussures">Chaussures</option>
-                                <option value="Accessoires">Accessoires</option>
-                                <option value="Jeux">Jeux</option>
-                              </select>
                             </div>
-                            <!-- Collection -->
-                            
-                            <!-- Status -->
-                            <div class="mb-3 col ecommerce-select2-dropdown">
-                              <label class="form-label mb-1" for="status-org">Statut </label>
-                              <select id="status-org" class="select2 form-select" data-placeholder="Published">
-                                <option value="1">Programmée</option>
-                                <option value="2" selected>Publier</option>
-                                <option value="3">Inactif</option>
-                              </select>
+                          </div>
+                          <div class="my-3">
+                            <label class="form-label" for="product-marge">Marge</label>
+                            <div class="input-group">
+                              <input type="text" class="form-control" product-marge placeholder="Marge">
+                              <span class="input-group-text">%</span>
                             </div>
                           </div>
                         </div>
-                        <!-- /Organize Card -->
                       </div>
-                      <!-- /Second column -->
+                      <!-- /Pricing Card -->
+                      <!-- Organize Card -->
+                      <div class="card mb-4">
+                        <div class="card-header">
+                          <h5 class="card-title mb-0">Organisateur</h5>
+                        </div>
+                        <div class="card-body">
+                          <!-- Status -->
+                          <div class="mb-3 col ecommerce-select2-dropdown">
+                            <label class="form-label mb-1" for="status-org">Statut </label>
+                            <select id="status-org" class="select2 form-select" data-placeholder="Published">
+                              <option value="1">Actif</option>
+                              <option value="2" selected>Non Actif</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /Organize Card -->
+                    </div>
+                    <!-- /Second column -->
                     </div>
                   </div>
               

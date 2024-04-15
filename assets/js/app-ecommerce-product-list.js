@@ -91,7 +91,7 @@ $(function () {
         { data: 'id' },
         { data: 'sku' },
         { data: 'product_name' },
-        { data: 'category' },
+        
         { data: 'stock' },
         
         { data: 'product_brand' },
@@ -133,38 +133,10 @@ $(function () {
             return $name;
           }
         },
-        {
-          // Product Category
-
-          targets: 4,
-          responsivePriority: 5,
-          render: function (data, type, full, meta) {
-            var categoryHtml = '';
-            var categories = full['category'];
-            
-            for (var i = 0; i < categories.length; i++) {
-                var category = categories[i];
-                var section = category['section'];
-                var parent = category['parent'];
-                var child = category['child'];
         
-                if (categories_section[section] && categories_section[section].categoryParent[parent] && categories_section[section].categoryParent[parent].categoryObj[child]) {
-                    var sectionTitle = categories_section[section].title;
-                    var parentTitle = categories_section[section].categoryParent[parent].title;
-                    var childTitle = categories_section[section].categoryParent[parent].categoryObj[child].title;
-        
-                    // categoryHtml += sectionTitle + ' > ' + parentTitle + ' > ' + childTitle + '<br>';
-                    categoryHtml += childTitle + ' <br><small class="text-muted">('+sectionTitle+'/'+parentTitle+')</small>'+ '<br>';
-                }
-            }
-        
-            return categoryHtml;
-        }
-        
-        },
         {
           // Stock
-          targets: 5,
+          targets: 4,
           orderable: false,
           responsivePriority: 3,
           render: function (data, type, full, meta) {
@@ -208,7 +180,7 @@ $(function () {
         },
         {
           // price
-          targets: 6,
+          targets: 5,
           render: function (data, type, full, meta) {
             var $price = full['product_brand'];
 

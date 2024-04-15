@@ -101,11 +101,7 @@
                     <div>Liste Des Produits</div>
                   </a>
                 </li>
-                <li class="menu-item">
-                  <a href="/pages/categories/index.html" class="menu-link">
-                    <div>Catégories</div>
-                  </a>
-                </li>
+               
               </ul>
             </li>
 
@@ -227,15 +223,8 @@
                           <a href="/pages/produits/add.html" class="stretched-link">Produit</a>
                           <small class="text-muted mb-0">Ajouter Produit</small>
                         </div>
-                        <div class="dropdown-shortcuts-item col active">
-                          <span class="dropdown-shortcuts-icon rounded-circle mb-2">
-                            <i class="ti ti-category fs-4"></i>
-                          </span>
-                          <a href="/pages/categories/add.html" class="stretched-link">Catégorie</a>
-                          <small class="text-muted mb-0">Ajouter Catégorie</small>
-                        </div>
-                      </div>
-                      <div class="row row-bordered overflow-visible g-0">
+                        
+                      
                         <div class="dropdown-shortcuts-item col">
                           <span class="dropdown-shortcuts-icon rounded-circle mb-2">
                             <i class="ti ti-users fs-4"></i>
@@ -447,24 +436,20 @@
                                               <i class="ti ti-trash"></i>
                                           </button>
                                       </div>
-                                      <div class="mb-3 col-md-3">
-                                        <label class="form-label" for="form-repeater-1-2">Fournisseur</label>
-                                        <select id="form-repeater-1-2" class="select2 form-select" data-placeholder="">
-                                          <option value="SANINDUSA">SANINDUSA</option>
-                                          <option value="Airforce">Airforce</option>
-                                          <option value="JIAXING LAYO">JIAXING LAYO</option>
-                                        </select>
-                                      </div>
-                                  <div class="mb-3 col-md-3">
-                                    <label class="form-label" for="form-repeater-1-1">Produit</label>
-                                    <select id="form-repeater-1-1" class="select2 form-select" data-placeholder="">
-                                      <option value="Produit 1">Table extensible en aluminium ELEN Blanc 160-240 cm</option>
-                                      <option value="Produit 2">Chaise longue en aluminium ELSA Antracite</option>
-                                      <option value="Produit 3">Chaise avec accoudoirs en aluminium NOYA Teak/ Blanc</option>
-                                      <option value="Produit 4">MIROIR LUXE GROSSISSANT DOUBLE FACE CHROME</option>
-                                      <option value="Produit 5">HOTTE F15A 60 XVSAT 600 RLN</option>
-                                      <option value="19472">Baignoire ALFA blanc 145x145 cm</option>
-                                    </select>
+                                      
+                                  <div class="mb-3 col-md-6">
+                                    <div>
+                                      <label class="form-label" for="form-repeater-1-1">Produit</label>
+                                      <select id="form-repeater-1-1" class="select2 form-select" data-placeholder="">
+                                        <option value="Produit 1">Table extensible en aluminium ELEN Blanc 160-240 cm</option>
+                                        <option value="Produit 2">Chaise longue en aluminium ELSA Antracite</option>
+                                        <option value="Produit 3">Chaise avec accoudoirs en aluminium NOYA Teak/ Blanc</option>
+                                        <option value="Produit 4">MIROIR LUXE GROSSISSANT DOUBLE FACE CHROME</option>
+                                        <option value="Produit 5">HOTTE F15A 60 XVSAT 600 RLN</option>
+                                        <option value="19472">Baignoire ALFA blanc 145x145 cm</option>
+                                      </select>
+                                    </div>
+                                    <span class="text-danger">Prix de vente min: <strong>90€</strong></span>
                                   </div>
                                     
     
@@ -485,7 +470,8 @@
                                         id="form-repeater-1-4"
                                         class="form-control"
                                         disabled
-                                        placeholder="Prix" />
+                                        placeholder="Prix"
+                                        value="100" />
                                     </div>
                                     <div class="mb-3 col-md-2">
                                       <label class="form-label" for="form-repeater-1-5">Remise</label>
