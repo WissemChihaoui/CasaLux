@@ -514,9 +514,16 @@
                                 name="productDiscountedPrice"
                                 aria-label="Product discounted price" />
                             </div>
+                            <div class="my-3">
+                              <label class="form-label" for="product-marge">Marge</label>
+                              <div class="input-group">
+                                <input type="text" class="form-control" product-marge placeholder="Marge">
+                                <span class="input-group-text">%</span>
+                              </div>
+                            </div>
                            
                             <!-- Instock switch -->
-                            <div class="d-flex justify-content-between align-items-center border-top border-bottom py-3">
+                            <div class="d-flex justify-content-between align-items-center border-top py-3">
                               <h6 class="mb-0">En stock</h6>
                               <div class="w-25 d-flex justify-content-end">
                                 <label class="switch switch-primary switch-sm me-4 pe-2">
@@ -529,23 +536,6 @@
                                 </label>
                               </div>
                             </div>
-                            <div class="my-3">
-                              <label class="form-label" for="product-marge">Marge</label>
-                              <div class="input-group">
-                                <input type="text" class="form-control" product-marge placeholder="Marge">
-                                <span class="input-group-text">%</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- /Pricing Card -->
-                        <!-- Organize Card -->
-                        <div class="card mb-4">
-                          <div class="card-header">
-                            <h5 class="card-title mb-0">Organisateur</h5>
-                          </div>
-                          <div class="card-body">
-                            <!-- Status -->
                             <div class="mb-3 col ecommerce-select2-dropdown">
                               <label class="form-label mb-1" for="status-org">Statut </label>
                               <select id="status-org" class="select2 form-select" data-placeholder="Published">
@@ -553,8 +543,12 @@
                                 <option value="2" selected>Non Actif</option>
                               </select>
                             </div>
+                            
                           </div>
                         </div>
+                        <!-- /Pricing Card -->
+                        <!-- Organize Card -->
+                        
                         <!-- /Organize Card -->
                       </div>
                       <!-- /Second column -->

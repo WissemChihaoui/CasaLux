@@ -292,7 +292,7 @@ $(function () {
           ]
         },
         {
-          text: '<i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Ajouter Client</span>',
+          text: '<i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Ajouter Fournisseur</span>',
           className: 'add-new btn btn-primary ms-2 ms-sm-0',
           action: function () {
             window.location.href = addFournisseur;

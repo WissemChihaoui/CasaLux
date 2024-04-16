@@ -194,7 +194,14 @@ $(function () {
     $('.dataTables_length .form-select').removeClass('form-select-sm');
   }, 300);
 });
-
+(function(){
+  const flatpickrDate = document.querySelector('#payment-date')
+  if (flatpickrDate) {
+    flatpickrDate.flatpickr({
+      monthSelectorType: 'static'
+    });
+  }
+})
 //sweet alert
 (function () {
   const deleteOrder = document.querySelector('.delete-order');

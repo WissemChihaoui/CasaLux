@@ -34,14 +34,19 @@
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="/assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="/assets/css/demo.css" />
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="/assets/vendor/libs/node-waves/node-waves.css" />
     <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="/assets/vendor/libs/typeahead-js/typeahead.css" />
-
+    <link rel="stylesheet" href="/assets/vendor/libs/bootstrap-select/bootstrap-select.css">
+    <link rel="stylesheet" href="/assets/vendor/libs/flatpickr/flatpickr.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/bootstrap-daterangepicker/bootstrap-daterangepicker.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/jquery-timepicker/jquery-timepicker.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/pickr/pickr-themes.css" />
     <!-- Page CSS -->
 
     <!-- Helpers -->
@@ -418,9 +423,18 @@
                               <span class="w-px-100 text-heading">TVA:</span>
                               <h6 class="mb-0">30 DT</h6>
                             </div>
-                            <div class="d-flex justify-content-between">
+                           
+                            <div class="d-flex justify-content-between mb-2">
                               <h6 class="w-px-100 mb-0">Total TTC:</h6>
                               <h6 class="mb-0">6450 DT</h6>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                              <span class="w-px-100 text-heading">Payé:</span>
+                              <h6 class="mb-0">6000 DT</h6>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                              <span class="w-px-100 text-heading">Restant:</span>
+                              <h6 class="mb-0">450 DT</h6>
                             </div>
                           </div>
                         </div>
@@ -444,10 +458,10 @@
                           ><i class="ti ti-currency-dollar ti-xs me-2"></i>Ajouter un paiement</span
                         >
                       </button>
-                        <a href="/pages/factures/view.html" id="btn-view-facture" class="btn btn-label-primary d-grid w-100 mb-2">
+                        <a href="/pages/factures/view.html" target="_blank" id="btn-view-facture" class="btn btn-label-primary d-grid w-100 mb-2">
                           Voir facture
                         </a>
-                        <a href="/pages/bon-livraison/view.html" id="btn-view-livraison" class="btn btn-label-primary d-grid w-100 mb-2">
+                        <a href="/pages/bon-livraison/view.html" target="_blank" id="btn-view-livraison" class="btn btn-label-primary d-grid w-100 mb-2">
                           Voir bon livraison
                         </a>
                       </div>
@@ -460,7 +474,7 @@
                       <div class="card-body">
                         <div class="d-flex justify-content-start align-items-center mb-4">
                           <div class="avatar me-2">
-                            <img src="../../../assets/img/avatars/1.png" alt="Avatar" class="rounded-circle" />
+                            <img src="/../assets/img/avatars/1.png" alt="Avatar" class="rounded-circle" />
                           </div>
                           <div class="d-flex flex-column">
                             <a href="javascript:void(0)" class="text-body text-nowrap">
@@ -579,7 +593,12 @@
     
     <!-- Vendors JS -->
     <script src="/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
-
+    <script src="/assets/vendor/libs/bootstrap-select/bootstrap-select.js"></script>
+    <script src="/assets/vendor/libs/flatpickr/flatpickr.js"></script>
+    <script src="/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <script src="/assets/vendor/libs/bootstrap-daterangepicker/bootstrap-daterangepicker.js"></script>
+    <script src="/assets/vendor/libs/jquery-timepicker/jquery-timepicker.js"></script>
+    <script src="/assets/vendor/libs/pickr/pickr.js"></script>
     <!-- Main JS -->
     <script src="/assets/js/main.js"></script>
     

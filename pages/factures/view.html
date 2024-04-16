@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-wide"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../../../assets/"
+  data-template="horizontal-menu-template"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Facture | CasaLux</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/assets/img/favicon.png"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&ampdisplay=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/fonts/fontawesome.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/fonts/tabler-icons.css"
+    />
+    <link rel="stylesheet" href="../../../assets/vendor/fonts/flag-icons.css" />
+
+    <!-- Core CSS -->
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/css/rtl/core.css"
+      class="template-customizer-core-css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/css/rtl/theme-default.css"
+      class="template-customizer-theme-css"
+    />
+    <link rel="stylesheet" href="../../../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/libs/node-waves/node-waves.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/libs/typeahead-js/typeahead.css"
+    />
+
+    <!-- Page CSS -->
+
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/css/pages/app-invoice-print.css"
+    />
+
+    <!-- Helpers -->
+    <script src="../../../assets/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="../../../assets/vendor/js/template-customizer.js"></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../../../assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Content -->
+
+    <div class="invoice-print p-5">
+      <!-- <div class="d-flex justify-content-between flex-row">
+        <div class="mb-4">
+          <div class="d-flex svg-illustration mb-3 gap-2 align-items-center">
+            <img src="../../../assets/img/logo.png" alt="" width="36" />
+            <span class="app-brand-text fw-bold"> MISSB2B </span>
+          </div>
+          <p class="mb-1">75 RUE DE BOURGOGNE</p>
+          <p class="mb-1">89000 AUXERRE</p>
+          <p class="mb-0">FRANCE</p>
+        </div>
+        <div>
+          <h4 class="fw-medium">Facture #86423</h4>
+          <div class="mb-2">
+            <span class="text-muted">Date :</span>
+            <span class="fw-medium">April 25, 2021</span>
+          </div>
+          <div>
+            <span class="text-muted">Date d'échance:</span>
+            <span class="fw-medium">May 25, 2021</span>
+          </div>
+        </div>
+      </div> -->
+      <table style="width: 100%;">
+        <tr>
+          <td align="left">
+            <div style="margin-bottom: 1rem;">
+              <h4
+                style="margin-bottom: 1rem;"
+              >
+                <img src="/assets/img/favicon.png" alt="" width="36" />
+                <strong style="margin-left:8px ;"> Casa Lux </strong>
+              </h4>
+              <p style="margin-bottom: 0.25rem;">75 RUE DE BOURGOGNE</p>
+              <p style="margin-bottom: 0.25rem;">89000 AUXERRE</p>
+              <p style="margin-bottom: 0;">FRANCE</p>
+            </div>
+          </td>
+          <td>
+            <p style="margin-bottom: 0.25rem;"><strong>Client </strong>: Passagers</p>
+            <p style="margin-bottom: 0.25rem;"><strong>Contact </strong>: 987 654 3210</p>
+                
+          </td>
+          <td align="right">
+            <h4 style="font-weight: 600;">Facture #86423</h4>
+            <div style="margin-bottom: 0.5rem;">
+              <span style="color: #a5a3ae!important;">Date :</span>
+              <span style="font-weight: 600;">25 Avril, 2021</span>
+            </div>
+            <div>
+              <span style="color: #a5a3ae!important;">Statut:</span>
+              <span style="font-weight: 600;">EN ATTENTE</span>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <hr />
+      <div class="table-responsive" style="margin-bottom: 1rem;">
+        <table class="table m-0" >
+          <thead class="table-light">
+            <tr>
+              <th>Réf produit</th>
+              <th>Produit</th>
+              <th>Qté</th>
+              <th>Prix (HT)</th>
+              <th>Remise</th>
+              <th>Prix (TTC)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#8642</td>
+              <td>Miroir de salle de bains</td>
+              <td>1</td>
+              <td>225 DT</td>
+              <td>10%</td>
+              <td>202.5 DT</td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+      <table style="width: max-content; margin: auto;" class="table" align="right">
+
+        <tbody>
+            <tr>
+                <td>
+                    TOTAL HT
+                </td>
+                <td>
+                    191.67 DT
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    TAUX TVA
+                </td>
+                <td>
+                    20%
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    MONTANT TVA
+                </td>
+                <td>
+                    38.33 DT
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    PRIX TOTAL TTC
+                </td>
+                <td>
+                    230.00 DT
+                </td>
+            </tr>
+        </tbody>
+       
+    </table>
+
+      <div class="row">
+        <div class="col-12">
+          <span class="fw-medium">Note:</span>
+          <span
+            >Ce fut un plaisir de travailler avec vous et votre équipe. Nous espérons que vous nous garderez à l'esprit pour de futurs projets en freelance. Nous vous remercions !</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- / Content -->
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+
+    <script src="../../../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../../../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../../../assets/vendor/js/bootstrap.js"></script>
+    <script src="../../../assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="../../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../../../assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="../../../assets/vendor/libs/i18n/i18n.js"></script>
+    <script src="../../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="../../../assets/vendor/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+
+    <!-- Main JS -->
+    <script src="../../../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script>
+        /**
+ * Invoice Print
+ */
+
+'use strict';
+
+(function () {
+  window.print();
+})();
+    </script>
+  </body>
+</html>
