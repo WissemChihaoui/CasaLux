@@ -7,7 +7,7 @@
 // Datatable (jquery)
 const selectElement = document.getElementById('statusCommande');
 const btnViewFacture = document.getElementById('btn-view-facture');
-const btnViewLivraison = document.getElementById('btn-view-livraison');
+const btnViewLivraison = document.getElementsByClassName('btn-view-livraison');
 function toggleButtonsVisibility() {
   const selectedValue = selectElement.value;
 
@@ -17,6 +17,7 @@ function toggleButtonsVisibility() {
   } else if (selectedValue === 'unpaid') {
     btnViewFacture.classList.add('d-none');
     btnViewLivraison.classList.add('d-none');
+
   }
 }
 window.addEventListener('load', toggleButtonsVisibility);
